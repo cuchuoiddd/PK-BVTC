@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style3.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="js/jquery.datetimepicker.min.css" />
+    <link rel="stylesheet" href="js/selectize.css">
+    <style type="text/css">
+        .lable-text {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .line {
+            margin: 10px 0;
+        }
+        
+        .table-fixed {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        
+        .table thead th {
+            border-bottom: 2px solid transparent;
+        }
+        
+        .table-fixed tbody {
+            height: 200px;
+            overflow-y: auto;
+            width: 100%;
+        }
+        
+        .table>tbody>tr.active>td {
+            background: #c1c5ca;
+            color: #fff;
+        }
+        
+        .table-fixed thead,
+        .table-fixed tbody,
+        .table-fixed tr,
+        .table-fixed td,
+        .table-fixed th {
+            display: block;
+            overflow-y: auto;
+        }
+        
+        .table-fixed tbody td,
+        .table-fixed tbody th,
+        .table-fixed thead > tr > th {
+            float: left;
+            position: relative;
+            &::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+        }
+        
+        .table-fixed-chidinh {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        
+        .table-fixed-chidinh tbody {
+            height: 400px;
+            overflow-y: auto;
+            width: 100%;
+        }
+        
+        .table-fixed-chidinh thead,
+        .table-fixed-chidinh tbody,
+        .table-fixed-chidinh tr,
+        .table-fixed-chidinh td,
+        .table-fixed-chidinh th {
+            display: block;
+            overflow-y: auto;
+        }
+        
+        .table-fixed-chidinh tbody td,
+        .table-fixed-chidinh tbody th,
+        .table-fixed-chidinh thead > tr > th {
+            float: left;
+            position: relative;
+            &::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+        }
+        
+        .table-fixed-dropdown {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        
+        .table-fixed-dropdown tbody {
+            height: 50px;
+            overflow-y: auto;
+            width: 100%;
+        }
+        
+        .table-fixed-dropdown thead,
+        .table-fixed-dropdown tbody,
+        .table-fixed-dropdown tr,
+        .table-fixed-dropdown td,
+        .table-fixed-dropdown th {
+            display: block;
+            overflow-y: auto;
+        }
+        
+        .table-fixed-dropdown tbody td,
+        .table-fixed-dropdown tbody th,
+        .table-fixed-dropdown thead > tr > th {
+            float: left;
+            position: relative;
+            &::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+        }
+
+        .table-fixed-history {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        
+        .table-fixed-history tbody {
+            height: 400px;
+            overflow-y: auto;
+            width: 100%;
+        }
+
+        .body-history {
+            height: 400px;
+            overflow-y: auto;
+            width: 100%;
+        }
+        
+        .table-fixed-history thead,
+        .table-fixed-history tbody,
+        .table-fixed-history tr,
+        .table-fixed-history td,
+        .table-fixed-history th {
+            display: block;
+            overflow-y: auto;
+        }
+        
+        .table-fixed-history tbody td,
+        .table-fixed-history tbody th,
+        .table-fixed-history thead > tr > th {
+            float: left;
+            position: relative;
+            &::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+        }
+
+
+        .table-fixed-process {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        
+        .table-fixed-process tbody {
+            height: 100%;
+            overflow-y: auto;
+            width: 100%;
+        }
+        
+        .table-fixed-process thead,
+        .table-fixed-process tbody,
+        .table-fixed-process tr,
+        .table-fixed-process td,
+        .table-fixed-process th {
+            display: block;
+            overflow-y: auto;
+        }
+        
+        .table-fixed-process tbody td,
+        .table-fixed-process tbody th,
+        .table-fixed-process thead > tr > th {
+            float: left;
+            position: relative;
+            &::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+        }
+        
+        select,
+        option {
+            width: 200px;
+        }
+        
+        option {
+            width: 200px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .selectize-input {
+            height: 40px;
+            width: 100%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <!-- Process  -->
+        <nav id="sidebarProcess">
+            <div id="dismissProcess">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3 style="color: white;">Quá trình khám</h3>
+            </div>
+
+                                <div class="col-12" style="margin-top: 10px;">
+                                    <div class="panel panel-default ">
+                                        <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                <table class="table table-fixed-process">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col" class="col-5">Tên mục</th>
+                                                        <th scope="col" class="col-5">Ngày chỉ định</th>
+                                                        <th scope="col" class="col-1"></th>
+                                                        <th scope="col" class="col-1"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-5" >Tiếp đón</td>
+                                                        <td class="col-5">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-5" >Khám nội 2</td>
+                                                        <td class="col-5">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-5" >Phiếu CDHA/1910/171603</td>
+                                                        <td class="col-5">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-5" >Phiếu XN/1910/156701</td>
+                                                        <td class="col-5">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-5" >Đơn thuốc BV/DT/038097</td>
+                                                        <td class="col-5">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-5" >Đơn thuốc BV/DT/038097</td>
+                                                        <td class="col-5">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-5" >Đơn thuốc BV/DT/038097</td>
+                                                        <td class="col-5">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-5" >Đơn thuốc BV/DT/038097</td>
+                                                        <td class="col-5">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-5" >Đơn thuốc BV/DT/038097</td>
+                                                        <td class="col-5">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                        <td class="col-1">
+                                                            <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+        </nav>
+
+
+        <!-- History  -->
+        <nav id="sidebarHistory">
+            <div id="dismissHistory">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3 style="color: white;">Lịch sử khám</h3>
+            </div>
+
+                                <div class="col-12" style="margin-top: 10px;">
+                                    <div class="panel panel-default ">
+                                        <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                <table class="table table-fixed-dropdown">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col" class="col-3">Phiếu khám</th>
+                                                        <th scope="col" class="col-3">Ngày khám</th>
+                                                        <th scope="col" class="col-3">Phòng khám</th>
+                                                        <th scope="col" class="col-3">Lý do</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr data-toggle="collapse" data-parent="#faqAccordion" data-target="#ls0" style="color: blue;">
+                                                        <td class="col-3" >TC191001212</td>
+                                                        <td class="col-3">10/10/2019 08:55:55</td>
+                                                        <td class="col-3">Nội 2</td>
+                                                        <td class="col-3">Đau bụng</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                        <div id="ls0" class="panel-collapse collapse" style="height: 0px;">
+                                      
+                                            <div class="row body-history" style="margin-top: 20px;">
+                                                
+                                                <div class="col-9">
+                                                    <label class="lable-text">Phiếu khám: </label>
+                                                </div>
+                                               
+
+                                                <div class="col-12" style="margin-top: 10px;">
+                                                    <div class="panel panel-default ">
+                                                        <img src="images/pkdt.png" class="img-thumbnail">
+                                                    </div>
+                                                </div>
+
+                                                <div class="line"></div>
+
+                                                <div class="col-9">
+                                                    <label class="lable-text">CĐHA: </label>
+                                                </div>
+                                               
+
+                                                <div class="col-12" style="margin-top: 10px;">
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading accordion-toggle question-toggle collapsed" style="margin-bottom: -20px;">
+                                                                <table class="table table-fixed-dropdown">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th scope="col" class="col-4">Lần chỉ định</th>
+                                                                        <th scope="col" class="col-4">Bp yêu cầu</th>
+                                                          
+                                                                        <th scope="col" class="col-4">Ngày chỉ định</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="col-4" data-toggle="collapse" data-parent="#faqAccordion" data-target="#cdha01"><b style="color: blue;">CDHA/1910/171603</b></td>
+                                                                        <td class="col-4">Nội 2</td>
+                                            
+                                                                        <td class="col-4">10/10/2019 08:55:55</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                        </div>
+                                                        <div id="cdha01" class="panel-collapse collapse" style="height: 0px;">
+                                                            <img src="images/kq.png" class="img-thumbnail">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="line"></div>
+
+                                                
+                                            </div>
+                                
+                                        </div>
+
+                                        <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                <table class="table table-fixed-dropdown">
+                                                    
+                                                <tbody>
+                                                    <tr data-toggle="collapse" data-parent="#faqAccordion" data-target="#ls1" style="color: blue;">
+                                                        <td class="col-3" >TC191001212</td>
+                                                        <td class="col-3">10/10/2019 08:55:55</td>
+                                                        <td class="col-3">Nội 3</td>
+                                                        <td class="col-3">Đau bụng</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                        <div id="ls1" class="panel-collapse collapse" style="height: 0px;">
+                                      
+                                            <div class="row body-history" style="margin-top: 20px;">
+                                                
+                                                <div class="col-9">
+                                                    <label class="lable-text">Phiếu khám: </label>
+                                                </div>
+                                               
+
+                                                <div class="col-12" style="margin-top: 10px;">
+                                                    <div class="panel panel-default ">
+                                                        <img src="images/pkdt.png" class="img-thumbnail">
+                                                    </div>
+                                                </div>
+
+                                                <div class="line"></div>
+
+                                                <div class="col-9">
+                                                    <label class="lable-text">CĐHA: </label>
+                                                </div>
+                                               
+
+                                                <div class="col-12" style="margin-top: 10px;">
+                                                    <div class="panel panel-default ">
+                                                        <div class="panel-heading accordion-toggle question-toggle collapsed" style="margin-bottom: -20px;">
+                                                                <table class="table table-fixed-dropdown">
+                                                                    <thead>
+                                                                    <tr>
+                                                                        <th scope="col" class="col-4">Lần chỉ định</th>
+                                                                        <th scope="col" class="col-4">Bp yêu cầu</th>
+                                                          
+                                                                        <th scope="col" class="col-4">Ngày chỉ định</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="col-4" data-toggle="collapse" data-parent="#faqAccordion" data-target="#cdha01"><b style="color: blue;">CDHA/1910/171603</b></td>
+                                                                        <td class="col-4">Nội 2</td>
+                                            
+                                                                        <td class="col-4">10/10/2019 08:55:55</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+
+                                                        </div>
+                                                        <div id="cdha01" class="panel-collapse collapse" style="height: 0px;">
+                                                            <img src="images/kq.png" class="img-thumbnail">
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="line"></div>
+
+                                                
+                                            </div>
+                                
+                                        </div>
+
+
+                                    </div>
+                                </div>
+        </nav>
+
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div id="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3>Danh sách bệnh nhân</h3>
+            </div>
+
+            <table class="table table-hover table-borderless">
+                <tbody>
+                    <tr class="row-table">
+                        <td>1</td>
+                        <td>TC190907778</td>
+                        <td>NGUYỄN VĂN QUYẾT</td>
+                        <td>31</td>
+                        <td>Nam</td>
+                        <td><img src="images/capcuu.png" class="icon-image"></td>
+                    </tr>
+                    <tr class="row-table">
+                        <td>2</td>
+                        <td>TC190907885</td>
+                        <td>PHAN MẠNH TƯỜNG</td>
+                        <td>35</td>
+                        <td>Nam</td>
+                        <td></td>
+                    </tr>
+                    <tr class="row-table">
+                        <td>3</td>
+                        <td>TC190908134</td>
+                        <td>ĐỖ THỊ XUYỀN</td>
+                        <td>34</td>
+                        <td>Nữ</td>
+                        <td></td>
+                    </tr>
+                    <tr class="row-table">
+                        <td>4</td>
+                        <td>TC190909711</td>
+                        <td>NGUYỄN TRUNG HÀ</td>
+                        <td>57</td>
+                        <td>Nam</td>
+                        <td></td>
+                    </tr>
+                    <tr class="row-table">
+                        <td>5</td>
+                        <td>TC190908663</td>
+                        <td>NGUYỄN THẾ QUANG</td>
+                        <td>57</td>
+                        <td>Nam</td>
+                        <td><img src="images/logo_bhxh.png" class="icon-image"></td>
+                    </tr>
+                    <tr class="row-table">
+                        <td>6</td>
+                        <td>TC190910700</td>
+                        <td>PHẠM THỊ CHI</td>
+                        <td>30</td>
+                        <td>Nữ</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <div class="row col-12">
+                        <div class="col-1" style="padding-left: -0px;max-width: 5.333333%;">
+                            <div class="col-12" style="margin-bottom: 10px;">
+                                <button type="button" id="sidebarCollapse" class="btn btn-success">
+                                    <i class="fas fa-align-left"></i>
+                                </button>
+                            </div>
+
+                            <div class="col-12" style="margin-bottom: 10px;">
+                                <button type="button" id="sidebarCollapseHistory" class="btn btn-success">
+                                    <i class="fas fa-history"></i>
+                                </button>
+                             </div>
+                            
+                            <div class="col-12">
+                                <button type="button" id="sidebarCollapseProcess" class="btn btn-success">
+                                    <i class="fas fa-book-medical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-5 card mb-4 px-4 py-4">
+
+                            <div class="row">
+                                <div class="col-7">
+                                    <div class="form-group row">
+                                        <strong class="col-sm-4">Số PK: </strong>
+                                        <div class="col-sm-8">
+                                            TC190910700
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="form-group row">
+                                        <strong class="col-sm-6">Giới tính: </strong>
+                                        <div class="col-sm-6">
+                                            Nam
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-7">
+                                    <div class="form-group row">
+                                        <strong class="col-sm-4">Họ tên: </strong>
+                                        <div class="col-sm-8">
+                                            NGUYỄN VĂN QUYẾT
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="form-group row">
+                                        <strong class="col-sm-6">Tuổi: </strong>
+                                        <div class="col-sm-6">
+                                            80
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 card mb-4 px-4 py-4">
+                            <div class="row">
+                                <button type="button" class="btn btn-light col-2">Basic</button>
+                                <button type="button" class="btn btn-light col-2">Basic</button>
+                                <button type="button" class="btn btn-light col-2">Basic</button>
+                                <button type="button" class="btn btn-light col-2">Basic</button>
+                                <button type="button" class="btn btn-light col-2">Basic</button>
+                                <button type="button" class="btn btn-light col-2">Basic</button>
+                            </div>
+                            <div class="row">
+                                <button type="button" class="btn btn-light col-2">Dịch vụ</button>
+                                <button type="button" class="btn btn-primary col-2">BHYT</button>
+                                <button type="button" class="btn btn-light col-2">Basic</button>
+                                <button type="button" class="btn btn-danger col-2">Cấp cứu</button>
+                                <button type="button" class="btn btn-light col-2">Basic</button>
+                                <button type="button" class="btn btn-warning col-2">Dị ứng</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container" style="max-width: 88%;margin-bottom: 20px;">
+                <div class="row">
+                    <div class="col-5">
+                        <div class="row">
+                            <button class="btn btn-success mr-2">Khám</button>
+                        
+                            <button class="btn btn-success mr-2">In PK</button>
+                      
+                            <button class="btn btn-success mr-2">In phiếu TCT</button>
+                        
+                            <button class="btn btn-success ">In hướng dẫn</button>
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <strong>Tổng: 5.000.000</strong>
+                    </div>
+                    <div class="col-2">
+                        <strong>BHYT trả: 1.000.000</strong>
+                    </div>
+                    <div class="col-3">
+                        <strong>Số tiền còn thiếu: 2.000.000</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container" style="max-width: 88%;">
+
+                <div class="row">
+
+                    <div class="tab-content col-12">
+                        <div id="home" class="tab-pane active">
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label class="lable-text ">Bác sỹ: </label>
+                                        <select id="select-bs">
+                                            <option>Nguyễn Văn A</option>
+                                            <option>Phạm Văn B</option>
+                                            <option>Trần Văn C</option>
+                                            <option>Nguyễn Văn D</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="lable-text">Ngày thực hiện: </label>
+                                        <input id="datetimepicker" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Lý do: </label>
+                                        <div class="form-control">
+                                            Đau bụng
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label class="lable-text">Yêu cầu: </label>
+                                        <div class="form-control">
+                                            Khám thường
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Cân nặng: </label>
+                                        <input type="text" class="form-control" value="59.0">
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Chiều cao: </label>
+                                        <input type="text" class="form-control" value="170">
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Thân nhiệt: </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Mạch: </label>
+                                        <input type="text" class="form-control" value="76">
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Huyết áp: </label>
+                                        <input type="text" class="form-control" value="140/80">
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Nhịp thở: </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Bệnh sử: </label>
+                                        <textarea class="form-control">Bệnh nhân đi ngoài phân đen,đầy bụng-->khám</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Tiền sử: </label>
+                                        <textarea class="form-control">Viêm dạ dày trào ngược thực quản/Trĩ nội độ I-II</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Toàn thân: </label>
+                                        <textarea class="form-control" rows="5">Thể trạng trung bình, da niêm mạc bình thường không phù, không xuất huyết dưới da</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Bộ phận: </label>
+                                        <textarea class="form-control" rows="5">- Tim nhịp đều - Phổi không có ral - Bụng không chướng, gan lá lách không sờ thấy, không có điểm đau khu trú - Các bộ phận khác hiện tại không có gì đặc biệt
+                                        </textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Chẩn đoán: </label>
+                                        <textarea class="form-control">Hc dạ dày</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Hướng giải quyết: </label>
+                                        <textarea class="form-control">Kê đơn thuốc và hẹn tái khám sau đợt điều trị</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="row" style="margin-top: 20px;">
+                                <!-- XN -->
+                                <div class="col-9">
+                                    <label class="lable-text">Xét nghiệm: </label>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-success" style="width: 100%;" data-toggle="modal" data-target="#chidinhxn">Chỉ định XN</button>
+                                </div>
+
+                                <div class="col-12" style="margin-top: 10px;">
+                                    <div class="panel panel-default ">
+                                        <div class="panel-heading accordion-toggle question-toggle collapsed" style="margin-bottom: -20px;">
+                                            <table class="table table-fixed-dropdown">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" class="col-2">Lần chỉ định</th>
+                                                        <th scope="col" class="col-3">Bp yêu cầu</th>
+                                                        <th scope="col" class="col-2">Bs yêu cầu</th>
+                                                        <th scope="col" class="col-3">Ngày chỉ định</th>
+                                                        <th scope="col" class="col-1">Thành tiền</th>
+                                                        <th scope="col" class="col-1"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-2" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question0"><b style="color: blue;">XN/1910/156701</b></td>
+                                                        <td class="col-3">Nội 2</td>
+                                                        <td class="col-2">Nguyễn Văn A</td>
+                                                        <td class="col-3">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">2.100.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhxn"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                        <div id="question0" class="panel-collapse collapse" style="height: 0px;">
+                                            <table class="table table-fixed-chidinh">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm laser) [24TS]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">150.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                <table class="table table-fixed-dropdown">
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-2" data-toggle="collapse" data-parent="#faqAccordion" data-target="#question1"><b style="color: blue;">XN/1910/156701</b></td>
+                                                        <td class="col-3">Nội 2</td>
+                                                        <td class="col-2">Nguyễn Văn A</td>
+                                                        <td class="col-3">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">2.100.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhxn"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                        <div id="question1" class="panel-collapse collapse" style="height: 0px;">
+                                            <table class="table table-fixed-chidinh">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm laser) [24TS]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">150.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Huyết học</td>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-2">Phòng xét nghiệm</td>
+
+                                                        <td class="col-1">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- CDHA -->
+                                <div class="line" style="margin-top: 20px;margin-bottom: 20px;"></div>
+
+                                <div class="col-9">
+                                    <label class="lable-text">CĐHA: </label>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-success" style="width: 100%;" data-toggle="modal" data-target="#chidinhcdha">Chỉ định CĐHA</button>
+                                </div>
+
+                                <div class="col-12" style="margin-top: 10px;">
+                                    <div class="panel panel-default ">
+                                        <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                <table class="table table-fixed-dropdown">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col" class="col-2">Lần chỉ định</th>
+                                                        <th scope="col" class="col-3">Bp yêu cầu</th>
+                                                        <th scope="col" class="col-2">Bs yêu cầu</th>
+                                                        <th scope="col" class="col-3">Ngày chỉ định</th>
+                                                        <th scope="col" class="col-1">Thành tiền</th>
+                                                        <th scope="col" class="col-1"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-2" data-toggle="collapse" data-parent="#faqAccordion" data-target="#cdha0"><b style="color: blue;">CDHA/1910/171603</b></td>
+                                                        <td class="col-3">Nội 2</td>
+                                                        <td class="col-2">Nguyễn Văn A</td>
+                                                        <td class="col-3">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">2.100.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhxn"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                        <div id="cdha0" class="panel-collapse collapse" style="height: 0px;">
+                                            <table class="table table-fixed-chidinh">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-2">Phiếu siêu âm màu</td>
+                                                        <td class="col-6">Siêu âm ổ bụng [tổng quát - màu 4D_Nam]</td>
+                                                        <td class="col-2">Phòng siêu âm 1</td>
+
+                                                        <td class="col-1">400.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Phiếu nội soi</td>
+                                                        <td class="col-6">Gây mê khác [Dạ dày và đại tràng]</td>
+                                                        <td class="col-2">Phòng nội soi</td>
+
+                                                        <td class="col-1">1.100.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Phiếu nội soi</td>
+                                                        <td class="col-6">Nội soi thực quản - dạ dày - tá tràng không sinh thiết [ống mềm_có test HP]</td>
+                                                        <td class="col-2">Phòng nội soi</td>
+
+                                                        <td class="col-1">750.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-2">Phiếu nội soi</td>
+                                                        <td class="col-6">Nội soi đại trực tràng toàn bộ ống mềm không sinh thiết</td>
+                                                        <td class="col-2">Phòng nội soi</td>
+                                                        <td class="col-1">1.190.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- PT -->
+                                <div class="line" style="margin-top: 20px;margin-bottom: 20px;"></div>
+
+                                <div class="col-12">
+                                    <div class="form-group ">
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="col-9">
+                                                <label class="lable-text">Phẫu thuật & thủ thuật: </label>
+                                            </div>
+                                            <div class="col-3">
+                                                <button type="button" class="btn btn-success" style="width: 100%;" data-toggle="modal" data-target="#chidinhpttt">Chỉ định PT & TT</button>
+                                            </div>
+                                        </div>
+                                        <table class="table table-fixed">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="col-4">Tên phiếu</th>
+                                                    <th scope="col" class="col-2">Bp yêu cầu</th>
+                                                    <th scope="col" class="col-2">Bs yêu cầu</th>
+                                                    <th scope="col" class="col-2">Ngày chỉ định</th>
+                                                    <th scope="col" class="col-1">Thành tiền</th>
+                                                    <th scope="col" class="col-1"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td scope="row" class="col-4">[PT] Phẫu thuật điều trị vết thương bàn tay bằng các vạt da tại chỗ</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-2">Nguyễn Văn A</td>
+                                                    <td class="col-2">10/10/2019 08:55:55</td>
+                                                    <td class="col-1">3.440.000</td>
+                                                    <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhpttt"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td scope="row" class="col-4">[TT] Đặt catheter tĩnh mạch trung tâm 01 nòng</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-2">Nguyễn Văn A</td>
+                                                    <td class="col-2">10/10/2019 08:55:55</td>
+                                                    <td class="col-1">3.440.000</td>
+                                                    <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhpttt"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- Thuoc -->
+                                <div class="line" style="margin-top: 20px;margin-bottom: 20px;"></div>
+
+                                <div class="col-12">
+                                    <div class="form-group ">
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="col-6">
+                                                <label class="lable-text">Thuốc: </label>
+                                            </div>
+                                            <div class="col-2">
+                                                <button type="button" class="btn btn-success" style="width: 100%;" data-toggle="modal" data-target="#chidinhthuoc">Kê thường</button>
+                                            </div>
+                                            <div class="col-2">
+                                                <button type="button" class="btn btn-success" style="width: 100%;" data-toggle="modal" data-target="#chidinhthuoc">Kê tủ trực </button>
+                                            </div>
+                                            <div class="col-2">
+                                                <button type="button" class="btn btn-success" style="width: 100%;" data-toggle="modal" data-target="#chidinhthuoc">Kê đi lĩnh</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12" style="margin-top: 10px;">
+                                                <div class="panel panel-default ">
+                                                    <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                            <table class="table table-fixed-dropdown">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th scope="col" class="col-1">Loại</th>
+                                                                    <th scope="col" class="col-2">Tên đơn thuốc</th>
+                                                                    <th scope="col" class="col-2">Bs chỉ định</th>
+                                                                    <th scope="col" class="col-3">Lời dặn</th>
+                                                                    <th scope="col" class="col-2">Ngày chỉ định</th>
+                                                                    <th scope="col" class="col-1">Thành tiền</th>
+                                                                    <th scope="col" class="col-1"></th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="col-1">T</td>
+                                                                    <td class="col-2"  data-toggle="collapse" data-parent="#faqAccordion" data-target="#thuoc0"><b style="color: blue;">BV/DT/038097</b></td>
+                                                        <td class="col-2">Nguyễn Văn A</td>
+                                                        <td class="col-3">Hết thuốc tái khám</td>
+                                                        <td class="col-2">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">540.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhthuoc"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                    <div id="thuoc0" class="panel-collapse collapse" style="height: 0px;">
+                                                        <table class="table table-fixed-chidinh">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" class="col-1">Tự túc</th>
+                                                                    <th scope="col" class="col-3">Tên thuốc</th>
+                                                                    <th scope="col" class="col-1">Đơn vị</th>
+                                                                    <th scope="col" class="col-1">Số lượng</th>
+                                                                    <th scope="col" class="col-2">Thành tiền</th>
+                                                                    <th scope="col" class="col-3">Cách dùng</th>
+                                                                    <th scope="col" class="col-1"></th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="col-1"><input type="radio" checked=""></td>
+                                                                    <td class="col-3">Abrocto 10ml (Ambroxol)</td>
+                                                                    <td class="col-1">Ống</td>
+
+                                                                    <td class="col-1">1</td>
+                                                                    <td class="col-2">8.346</td>
+                                                                    <td class="col-3">Ngày 2 viên chia 2 lần sáng tối sau ăn</td>
+                                                                    <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                    <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                            <table class="table table-fixed-dropdown">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="col-1">TT</td>
+                                                                    <td class="col-2"  data-toggle="collapse" data-parent="#faqAccordion" data-target="#thuoc1"><b style="color: blue;">BV/DT/038097</b></td>
+                                                        <td class="col-2">Nguyễn Văn A</td>
+                                                        <td class="col-3"></td>
+                                                        <td class="col-2">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">540.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhthuoc"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                    <div id="thuoc1" class="panel-collapse collapse" style="height: 0px;">
+                                                        <table class="table table-fixed-chidinh">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" class="col-4">Tên thuốc</th>
+                                                                    <th scope="col" class="col-1">Đơn vị</th>
+                                                                    <th scope="col" class="col-2">Số lượng kê</th>
+                                                                    <th scope="col" class="col-2">Số lượng dùng</th>
+                                                                    <th scope="col" class="col-2">Thành tiền</th>
+                                                                    <th scope="col" class="col-1"></th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+
+                                                                    <td class="col-4">Abrocto 10ml (Ambroxol)</td>
+                                                                    <td class="col-1">Ống</td>
+
+                                                                    <td class="col-2">1</td>
+                                                                    <td class="col-2">1</td>
+                                                                    <td class="col-2">8.346</td>
+                                                                    <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- VTYT -->
+                                <div class="line" style="margin-top: 20px;margin-bottom: 20px;"></div>
+
+                                <div class="col-12">
+                                    <div class="form-group ">
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="col-6">
+                                                <label class="lable-text">VTYT: </label>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12" style="margin-top: 10px;">
+                                                <div class="panel panel-default ">
+                                                    <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                            <table class="table table-fixed-dropdown">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th scope="col" class="col-1">Loại</th>
+                                                                    <th scope="col" class="col-2">Tên đơn thuốc</th>
+                                                                    <th scope="col" class="col-2">Bs chỉ định</th>
+                                                                    <th scope="col" class="col-3">Lời dặn</th>
+                                                                    <th scope="col" class="col-2">Ngày chỉ định</th>
+                                                                    <th scope="col" class="col-1">Thành tiền</th>
+                                                                    <th scope="col" class="col-1"></th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="col-1">T</td>
+                                                                    <td class="col-2"  data-toggle="collapse" data-parent="#faqAccordion" data-target="#vtyt0"><b style="color: blue;">BV/DT/038097</b></td>
+                                                        <td class="col-2">Nguyễn Văn A</td>
+                                                        <td class="col-3">Hết thuốc tái khám</td>
+                                                        <td class="col-2">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">540.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhthuoc"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                    <div id="vtyt0" class="panel-collapse collapse" style="height: 0px;">
+                                                        <table class="table table-fixed-chidinh">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" class="col-1">Tự túc</th>
+                                                                    <th scope="col" class="col-3">Tên thuốc</th>
+                                                                    <th scope="col" class="col-1">Đơn vị</th>
+                                                                    <th scope="col" class="col-1">Số lượng</th>
+                                                                    <th scope="col" class="col-2">Thành tiền</th>
+                                                                    <th scope="col" class="col-3">Cách dùng</th>
+                                                                    <th scope="col" class="col-1"></th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="col-1"><input type="radio" checked=""></td>
+                                                                    <td class="col-3">Abrocto 10ml (Ambroxol)</td>
+                                                                    <td class="col-1">Ống</td>
+
+                                                                    <td class="col-1">1</td>
+                                                                    <td class="col-2">8.346</td>
+                                                                    <td class="col-3">Ngày 2 viên chia 2 lần sáng tối sau ăn</td>
+                                                                    <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                    <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                            <table class="table table-fixed-dropdown">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="col-1">TT</td>
+                                                                    <td class="col-2"  data-toggle="collapse" data-parent="#faqAccordion" data-target="#vtyt1"><b style="color: blue;">BV/DT/038097</b></td>
+                                                        <td class="col-2">Nguyễn Văn A</td>
+                                                        <td class="col-3"></td>
+                                                        <td class="col-2">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">540.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhthuoc"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                    <div id="vtyt1" class="panel-collapse collapse" style="height: 0px;">
+                                                        <table class="table table-fixed-chidinh">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" class="col-4">Tên thuốc</th>
+                                                                    <th scope="col" class="col-1">Đơn vị</th>
+                                                                    <th scope="col" class="col-2">Số lượng kê</th>
+                                                                    <th scope="col" class="col-2">Số lượng dùng</th>
+                                                                    <th scope="col" class="col-2">Thành tiền</th>
+                                                                    <th scope="col" class="col-1"></th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+
+                                                                    <td class="col-4">Abrocto 10ml (Ambroxol)</td>
+                                                                    <td class="col-1">Ống</td>
+
+                                                                    <td class="col-2">1</td>
+                                                                    <td class="col-2">1</td>
+                                                                    <td class="col-2">8.346</td>
+                                                                    <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Hoa chat -->
+                                <div class="line" style="margin-top: 20px;margin-bottom: 20px;"></div>
+
+                                <div class="col-12">
+                                    <div class="form-group ">
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="col-6">
+                                                <label class="lable-text">Hoá chất: </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12" style="margin-top: 10px;">
+                                                <div class="panel panel-default ">
+                                                    <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                            <table class="table table-fixed-dropdown">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th scope="col" class="col-1">Loại</th>
+                                                                    <th scope="col" class="col-2">Tên đơn thuốc</th>
+                                                                    <th scope="col" class="col-2">Bs chỉ định</th>
+                                                                    <th scope="col" class="col-3">Lời dặn</th>
+                                                                    <th scope="col" class="col-2">Ngày chỉ định</th>
+                                                                    <th scope="col" class="col-1">Thành tiền</th>
+                                                                    <th scope="col" class="col-1"></th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="col-1">T</td>
+                                                                    <td class="col-2"  data-toggle="collapse" data-parent="#faqAccordion" data-target="#hc0"><b style="color: blue;">BV/DT/038097</b></td>
+                                                        <td class="col-2">Nguyễn Văn A</td>
+                                                        <td class="col-3">Hết thuốc tái khám</td>
+                                                        <td class="col-2">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">540.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhthuoc"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                    <div id="hc0" class="panel-collapse collapse" style="height: 0px;">
+                                                        <table class="table table-fixed-chidinh">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" class="col-1">Tự túc</th>
+                                                                    <th scope="col" class="col-3">Tên thuốc</th>
+                                                                    <th scope="col" class="col-1">Đơn vị</th>
+                                                                    <th scope="col" class="col-1">Số lượng</th>
+                                                                    <th scope="col" class="col-2">Thành tiền</th>
+                                                                    <th scope="col" class="col-3">Cách dùng</th>
+                                                                    <th scope="col" class="col-1"></th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="col-1"><input type="radio" checked=""></td>
+                                                                    <td class="col-3">Abrocto 10ml (Ambroxol)</td>
+                                                                    <td class="col-1">Ống</td>
+
+                                                                    <td class="col-1">1</td>
+                                                                    <td class="col-2">8.346</td>
+                                                                    <td class="col-3">Ngày 2 viên chia 2 lần sáng tối sau ăn</td>
+                                                                    <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                    <div class="panel-heading accordion-toggle question-toggle collapsed"  style="margin-bottom: -20px;">
+                                                            <table class="table table-fixed-dropdown">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="col-1">TT</td>
+                                                                    <td class="col-2"  data-toggle="collapse" data-parent="#faqAccordion" data-target="#hc1"><b style="color: blue;">BV/DT/038097</b></td>
+                                                        <td class="col-2">Nguyễn Văn A</td>
+                                                        <td class="col-3"></td>
+                                                        <td class="col-2">10/10/2019 08:55:55</td>
+                                                        <td class="col-1">540.000</td>
+                                                        <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-edit" data-toggle="modal" data-target="#chidinhthuoc"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                    <div id="hc1" class="panel-collapse collapse" style="height: 0px;">
+                                                        <table class="table table-fixed-chidinh">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col" class="col-4">Tên thuốc</th>
+                                                                    <th scope="col" class="col-1">Đơn vị</th>
+                                                                    <th scope="col" class="col-2">Số lượng kê</th>
+                                                                    <th scope="col" class="col-2">Số lượng dùng</th>
+                                                                    <th scope="col" class="col-2">Thành tiền</th>
+                                                                    <th scope="col" class="col-1"></th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+
+                                                                    <td class="col-4">Abrocto 10ml (Ambroxol)</td>
+                                                                    <td class="col-1">Ống</td>
+
+                                                                    <td class="col-2">1</td>
+                                                                    <td class="col-2">1</td>
+                                                                    <td class="col-2">8.346</td>
+                                                                    <td class="col-1"><span class="fa fa-search" data-toggle="modal" data-target="#kq"></span><b style="margin-left: 10px;"><span class="fa fa-trash"></span></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="line"></div>
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="lable-text">Kết luận: </label>
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal THUOC -->
+         <div class="modal fade" id="chidinhthuoc" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog mw-100 w-75" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group col-1">
+                                <label class="lable-text ">Tự túc: </label>
+                                <input type="radio" checked class="form-control">
+                            </div>
+                            <div class="form-group col-3">
+                                <label class="lable-text ">Tên thuốc: </label>
+                                <select class="demo-default select-country">
+                                    <option value="Băng dính Urgo 5 x 5m">Băng dính Urgo 5 x 5m</option>
+                                    <option value="Fluorouracil 500mg/10ml(Biluracil) (Fluorouracil (5-FU))">Fluorouracil 500mg/10ml(Biluracil) (Fluorouracil (5-FU))</option>
+                                    <option value="Sancoba eye drops 5ml (Cyanocobalamin 0.02%)">Sancoba eye drops 5ml (Cyanocobalamin 0.02%)</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-1">
+                                <label class="lable-text ">Đơn vị: </label>
+                                <input type="text" value="Viên" readonly="1" class="form-control">
+                            </div>
+                            <div class="form-group col-2">
+                                <label class="lable-text ">Cách dùng: </label>
+                                <select class="demo-default select-country" >
+                                    <option value="1">Ngày 2 viện chia 2 lần sáng tối</option>
+                                    <option value="2">Ngày 1 viên sau ăn tối</option>
+                                    <option value="3">Ngày 1 viên vào buổi sáng</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-2">
+                                <label class="lable-text ">Số lượng: </label>
+                                <input type="text" value="1" class="form-control">
+                            </div>
+                            <div class="form-group col-2">
+                                <label class="lable-text ">Thành tiền: </label>
+                                <input type="text" value="8,468" readonly="1" class="form-control">
+                            </div>
+                            <div class="form-group col-1">
+                                <label class="lable-text "></label>
+                                <button class="btn btn-success" onclick="addThuoc();">Thêm</button>
+                            </div>
+
+                            <table class="table table-fixed-chidinh" id="chi-dinh-thuoc">
+                                    <thead>
+                                                                <tr>
+                                                                    <th scope="col" class="col-1">Tự túc</th>
+                                                                    <th scope="col" class="col-3">Tên thuốc</th>
+                                                                    <th scope="col" class="col-1">Đơn vị</th>
+                                                                    <th scope="col" class="col-2">Cách dùng</th>
+                                                                    <th scope="col" class="col-2">Số lượng kê</th>
+                                                                    
+                                                                    <th scope="col" class="col-2">Thành tiền</th>
+                                                                    <th scope="col" class="col-1"></th>
+                                                            </thead>
+                                                            <tbody id="body-chi-dinh-thuoc">
+                                                                <tr id="ke-thuoc-1">
+                                                                    <td class="col-1"><input type="radio" checked class="form-control"></td>
+                                                                    <td class="col-3">Abrocto 10ml (Ambroxol)</td>
+                                                                    <td class="col-1">Ống</td>
+
+                                                                    <td class="col-2">Ngày 2 viên chia 2 lần sáng tối</td>
+                                                                    <td class="col-2"><input type="text" value="1" class="form-control"></td>
+                                                                    <td class="col-2">8.346</td>
+                                                                    <td class="col-1"><span class="fa fa-trash" onclick="removeThuoc(1);"></span></td>
+                                                                </tr>
+                                                                <tr id="ke-thuoc-2">
+                                                                    <td class="col-1"><input type="radio" class="form-control"></td>
+                                                                    <td class="col-3">Băng dính Urgo 5 x 5m</td>
+                                                                    <td class="col-1">Cái</td>
+
+                                                                    <td class="col-2"></td>
+                                                                    <td class="col-2"><input type="text" value="1" class="form-control">
+                                                                    <td class="col-2">8.346</td>
+                                                                    <td class="col-1"><span class="fa fa-trash" onclick="removeThuoc(2);"></span></td>
+                                                                </tr>
+                                                                <tr id="ke-thuoc-3">
+                                                                    <td class="col-1"><input type="radio" class="form-control"></td>
+                                                                    <td class="col-3">Abrocto 10ml (Ambroxol)</td>
+                                                                    <td class="col-1">Ống</td>
+
+                                                                    <td class="col-2">Ngày 2 viên chia 2 lần sáng tối</td>
+                                                                    <td class="col-2"><input type="text" value="1" class="form-control">
+                                                                    <td class="col-2">8.346</td>
+                                                                    <td class="col-1"><span class="fa fa-trash" onclick="removeThuoc(3);"></span></td>
+                                                                </tr>
+                                                            </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal PTTT -->
+        <div class="modal fade" id="chidinhpttt" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog mw-100 w-75" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group col-8">
+                                <label class="lable-text ">Tên phiếu: </label>
+                                <select id="select-country" class="demo-default" placeholder="Tên phiếu...">
+                                    <option value="">Select a country...</option>
+                                    <option value="AF">[PT] Phẫu thuật điều trị vết thương bàn tay bằng các vạt da tại chỗ (16.000.000)</option>
+                                    <option value="AX">[TT] Đặt catheter tĩnh mạch trung tâm 01 nòng (7.000.000)</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-4">
+                                <label class="lable-text ">Địa điểm TT: </label>
+                                <div class="row">
+
+                                    <div class="col-6">
+                                        <input type="radio" name="optradio" checked class="form-group"> Tại phòng
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="radio" name="optradio" class="form-group"> Chuyển đi
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-3">
+                                <label class="lable-text ">Bp yêu cầu: </label>
+                                <select class="demo-default select-country" >
+                                    <option value="Nội 2">Nội 2</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-3">
+                                <label class="lable-text ">Bs yêu cầu: </label>
+                                <select class="demo-default select-country" >
+                                    <option value="Nguyễn Văn A">Nguyễn Văn A</option>
+                                    <option value="Nguyễn Văn B">Nguyễn Văn B</option>
+                                    <option value="Nguyễn Văn C">Nguyễn Văn C</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-3">
+                                <label class="lable-text ">Bp thực hiện: </label>
+                                <select class="demo-default select-country" >
+                                    <option value="Phòng mổ 1">Phòng mổ 1</option>
+                                    <option value="Phòng mổ 2">Phòng mổ 2</option>
+                                    <option value="Phòng mổ 3">Phòng mổ 3</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-3">
+                                <label class="lable-text ">Ngày yêu cầu: </label>
+                                <input type="text" class="form-control datetimepicker">
+                            </div>
+
+                            <div class="form-group col-4">
+                                <label class="lable-text ">Giá thoả thuận: </label>
+                                <input type="text" class="form-control" value="15.000.000">
+                            </div>
+
+                            <div class="form-group col-4">
+                                <label class="lable-text ">PP gây mê: </label>
+                                <select class="demo-default select-country" >
+                                    <option value="1">Phương pháp vô cảm toàn thân</option>
+                                    <option value="2">Phương pháp vô cảm bộ phận</option>
+                                    <option value="3">Tê ngoài màng cứng</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-4">
+                                <label class="lable-text ">Số lần: </label>
+                                <input type="text" class="form-control" value="1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                        <button type="button" class="btn btn-warning">In cam kết</button>
+                        <button type="button" class="btn btn-success">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal XN -->
+        <div class="modal fade" id="chidinhxn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog mw-100 w-75" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+
+                        <div class="col-12">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#all-xn"> 
+                                    Tất cả
+                                </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Huyết học</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Sinh hoá</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">SH nước tiểu</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Miễn dịch</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Vi sinh</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Tế bào học</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Mô bệnh học</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Sinh thiết</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="tab-content col-12">
+                            <div id="all-xn" class="tab-pane active">
+                                <div class="row" style="margin-top: 20px;">
+                                    <input type="text" id="search" placeholder="Tìm kiếm" class="form-control" style="margin-bottom: 10px;">
+                                    <table class="table table-fixed-chidinh" id="monTableau">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col" class="col-7">Tên XN</th>
+                                                <th scope="col" class="col-4">Thành tiền</th>
+                                                <th scope="col" class="col-1">
+                                                    <input type="checkbox" id="check_all_xn">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-7">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm laser) [24TS]</td>
+                                                <td class="col-4">150.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm tổng trở) [18TS- bằng máy đếm tự động]</td>
+                                                <td class="col-4">130.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định nhóm máu hệ ABO (Kỹ thuật trên giấy)</td>
+                                                <td class="col-4">85.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định nhóm máu hệ Rh(D) (Kỹ thuật phiến đá)</td>
+                                                <td class="col-4">90.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Đo hoạt độ AST (GOT) [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng Creatinin (máu)</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng Urê [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng Glucose [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Đo hoạt độ GGT (Gama Glutamyl Transferase) [Máu] [Gama GT]</td>
+                                                <td class="col-4">105.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Điện giải đồ (Na, K, Cl) [Máu] [Điện giải (Na+, K+, Cl-, Ca TP, Ca++)]</td>
+                                                <td class="col-4">270.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng TSH (Thyroid Stimulating hormone) [Máu]</td>
+                                                <td class="col-4">210.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng FT4 (Free Thyroxine) [Máu]</td>
+                                                <td class="col-4">210.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                        <button type="button" class="btn btn-success">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- modal THUOC -->
+         <div class="modal fade" id="kq" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog mw-100 w-75" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <img src="images/kq.png" class="img-thumbnail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- modal CDHA -->
+        <div class="modal fade" id="chidinhcdha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog mw-100 w-75" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="tab-content col-12">
+                            <div id="all-xn" class="tab-pane active">
+                                <div class="row" style="margin-top: 20px;">
+                                    <input type="text" id="search_cdha" placeholder="Tìm kiếm" class="form-control" style="margin-bottom: 10px;">
+                                    <table class="table table-fixed-chidinh" id="monTableauCdha">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col" class="col-4">Tên CĐHA</th>
+                                                <th scope="col" class="col-3">Bộ phận thực hiện</th>
+                                                <th scope="col" class="col-3">Ghi chú</th>
+                                                <th scope="col" class="col-1">Thành tiền</th>
+                                                <th scope="col" class="col-1">
+                                                    <input type="checkbox" id="check_all_cdha">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-4">Nội soi thực quản - Dạ dày - Tá tràng qua đường mũi [ống mềm sinh thiết - không test HP]</td>
+                                                <td class="col-3">
+                                                    <select class="form-control">
+                                                        <option>Phòng nội soi</option>
+                                                        <option>Phòng siêu âm</option>
+                                                    </select>
+                                                </td>
+
+                                                <td class="col-3"><input type="text" class="form-control" name="" value=""></td>
+                                                <td class="col-1">1.000.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_cdha" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-4">Nội soi tai mũi họng</td>
+                                                <td class="col-3">
+                                                    <select class="form-control">
+                                                        <option>Phòng nội soi</option>
+                                                        <option>Phòng siêu âm</option>
+                                                    </select>
+                                                </td>
+                                                <td class="col-3"><input type="text" class="form-control" name="" value=""></td>
+                                                <td class="col-1">3000.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_cdha" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-4">Nội soi thực quản - Dạ dày - Tá tràng qua đường mũi [ống mềm sinh thiết - không test HP]</td>
+                                                <td class="col-3">
+                                                    <select class="form-control">
+                                                        <option>Phòng nội soi</option>
+                                                        <option>Phòng siêu âm</option>
+                                                    </select>
+                                                </td>
+
+                                                <td class="col-3"><input type="text" class="form-control" name="" value=""></td>
+                                                <td class="col-1">1.000.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_cdha" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-4">Nội soi thực quản - Dạ dày - Tá tràng qua đường mũi [ống mềm sinh thiết - không test HP]</td>
+                                                <td class="col-3">
+                                                    <select class="form-control">
+                                                        <option>Phòng nội soi</option>
+                                                        <option>Phòng siêu âm</option>
+                                                    </select>
+                                                </td>
+
+                                                <td class="col-3"><input type="text" class="form-control" name="" value=""></td>
+                                                <td class="col-1">1.000.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_cdha" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-4">Nội soi thực quản - Dạ dày - Tá tràng qua đường mũi [ống mềm sinh thiết - không test HP]</td>
+                                                <td class="col-3">
+                                                    <select class="form-control">
+                                                        <option>Phòng nội soi</option>
+                                                        <option>Phòng siêu âm</option>
+                                                    </select>
+                                                </td>
+
+                                                <td class="col-3"><input type="text" class="form-control" name="" value=""></td>
+                                                <td class="col-1">1.000.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_cdha" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-4">Nội soi thực quản - Dạ dày - Tá tràng qua đường mũi [ống mềm sinh thiết - không test HP]</td>
+                                                <td class="col-3">
+                                                    <select class="form-control">
+                                                        <option>Phòng nội soi</option>
+                                                        <option>Phòng siêu âm</option>
+                                                    </select>
+                                                </td>
+
+                                                <td class="col-3"><input type="text" class="form-control" name="" value=""></td>
+                                                <td class="col-1">1.000.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_cdha" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-4">Nội soi thực quản - Dạ dày - Tá tràng qua đường mũi [ống mềm sinh thiết - không test HP]</td>
+                                                <td class="col-3">
+                                                    <select class="form-control">
+                                                        <option>Phòng nội soi</option>
+                                                        <option>Phòng siêu âm</option>
+                                                    </select>
+                                                </td>
+
+                                                <td class="col-3"><input type="text" class="form-control" name="" value=""></td>
+                                                <td class="col-1">1.000.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_cdha" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-4">Nội soi thực quản - Dạ dày - Tá tràng qua đường mũi [ống mềm sinh thiết - không test HP]</td>
+                                                <td class="col-3">
+                                                    <select class="form-control">
+                                                        <option>Phòng nội soi</option>
+                                                        <option>Phòng siêu âm</option>
+                                                    </select>
+                                                </td>
+
+                                                <td class="col-3"><input type="text" class="form-control" name="" value=""></td>
+                                                <td class="col-1">1.000.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_cdha" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-4">Nội soi thực quản - Dạ dày - Tá tràng qua đường mũi [ống mềm sinh thiết - không test HP]</td>
+                                                <td class="col-3">
+                                                    <select class="form-control">
+                                                        <option>Phòng nội soi</option>
+                                                        <option>Phòng siêu âm</option>
+                                                    </select>
+                                                </td>
+
+                                                <td class="col-3"><input type="text" class="form-control" name="" value=""></td>
+                                                <td class="col-1">1.000.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_cdha" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                        <button type="button" class="btn btn-success">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay"></div>
+
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!-- Popper.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+        <script src="js/jquery.datetimepicker.full.min.js"></script>
+        <script type="text/javascript" src="js/draw_table.js"></script>
+        <script type="text/javascript" src="js/search.js"></script>
+        <script src="js/selectize.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismiss, .overlay').on('click', function() {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').removeClass('active');
+                });
+
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').addClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+
+                $("#sidebarHistory").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismissHistory, .overlay').on('click', function() {
+                    $('#sidebarHistory').removeClass('active');
+                    $('.overlay').removeClass('active');
+                });
+
+                $('#sidebarCollapseHistory').on('click', function() {
+                    $('#sidebarHistory').addClass('active');
+                    $('.overlay').addClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+
+                 $("#sidebarProcess").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismissProcess, .overlay').on('click', function() {
+                    $('#sidebarProcess').removeClass('active');
+                    $('.overlay').removeClass('active');
+                });
+
+                $('#sidebarCollapseProcess').on('click', function() {
+                    $('#sidebarProcess').addClass('active');
+                    $('.overlay').addClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+
+                $(".clickable-row").click(function() {
+                    $(".clickable-row").removeClass('active');
+                    $(this).addClass('active');
+                });
+
+                $("#search").keyup(function() {
+                    _this = this;
+                    $.each($("table tbody tr"), function() {
+                        if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                            $(this).hide();
+                        else
+                            $(this).show();
+                    });
+                });
+
+                $("#search_cdha").keyup(function() {
+                    _this = this;
+                    $.each($("table tbody tr"), function() {
+                        if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                            $(this).hide();
+                        else
+                            $(this).show();
+                    });
+                });
+            });
+
+            $('#datetimepicker').datetimepicker();
+            $('.datetimepicker').datetimepicker();
+            $('#input-xn').keyup(function() {
+                table_search($('#input-xn').val(), $('#table-xn tbody tr'), '0123');
+            });
+
+            $("#check_all_xn").click(function() {
+                var status = this.checked;
+                $("input.selected_xn").each(function() {
+                    this.checked = status;
+                });
+            });
+
+            $(".remove-thuoc").click(function() {
+                alert("abc");
+                $(this).remove();
+            });
+
+            $("#check_all_cdha").click(function() {
+                var status = this.checked;
+                $("input.selected_cdha").each(function() {
+                    this.checked = status;
+                });
+            });
+            $('#select-country').selectize();
+            $('.select-country').selectize();
+            $('#select-bs').selectize();
+            $('#select-bs-1').selectize();
+
+            function removeThuoc(id){
+                $("#ke-thuoc-"+id).hide();
+            }
+
+            function addThuoc(){
+                var count = $('#chi-dinh-thuoc').find('tr').length;
+                console.log(count);
+                var html = '<tr id="ke-thuoc-'+count+'"><td class="col-1"><input type="radio" class="form-control"></td><td class="col-3">Abrocto 10ml (Ambroxol)</td><td class="col-1">Ống</td><td class="col-2">Ngày 2 viên chia 2 lần sáng tối</td><td class="col-2"><input type="text" value="1" class="form-control"><td class="col-2">8.346</td><td class="col-1"><span class="fa fa-trash" onclick="removeThuoc('+count+');"></span></td></tr>';
+
+                $("#body-chi-dinh-thuoc").append(html);
+            }
+        </script>
+</body>
+
+</html>

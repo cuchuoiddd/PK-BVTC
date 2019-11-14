@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Collapsible sidebar using Bootstrap 4</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style3.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.min.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery.datetimepicker.min.css" />
+    <style type="text/css">
+        .lable-text {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .line {
+            margin: 10px 0;
+        }
+        
+        .table-fixed {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        
+        .table thead th {
+            border-bottom: 2px solid transparent;
+        }
+        
+        .table-fixed tbody {
+            height: 200px;
+            overflow-y: auto;
+            width: 100%;
+        }
+        
+        .table>tbody>tr.active>td {
+            background: #c1c5ca;
+            color: #fff;
+        }
+        
+        .table-fixed thead,
+        .table-fixed tbody,
+        .table-fixed tr,
+        .table-fixed td,
+        .table-fixed th {
+            display: block;
+            overflow-y: auto;
+        }
+        
+        .table-fixed tbody td,
+        .table-fixed tbody th,
+        .table-fixed thead > tr > th {
+            float: left;
+            position: relative;
+            &::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+        }
+        
+        .table-fixed-chidinh {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        
+        .table-fixed-chidinh tbody {
+            height: 400px;
+            overflow-y: auto;
+            width: 100%;
+        }
+        
+        .table-fixed-chidinh thead,
+        .table-fixed-chidinh tbody,
+        .table-fixed-chidinh tr,
+        .table-fixed-chidinh td,
+        .table-fixed-chidinh th {
+            display: block;
+        }
+        
+        .table-fixed-chidinh tbody td,
+        .table-fixed-chidinh tbody th,
+        .table-fixed-chidinh thead > tr > th {
+            float: left;
+            position: relative;
+            &::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+        }
+
+        .table-fixed-dropdown {
+            width: 100%;
+            background-color: #f3f3f3;
+        }
+        
+        .table-fixed-dropdown tbody {
+            height: 50px;
+            overflow-y: auto;
+            width: 100%;
+        }
+        
+        .table-fixed-dropdown thead,
+        .table-fixed-dropdown tbody,
+        .table-fixed-dropdown tr,
+        .table-fixed-dropdown td,
+        .table-fixed-dropdown th {
+            display: block;
+        }
+        
+        .table-fixed-dropdown tbody td,
+        .table-fixed-dropdown tbody th,
+        .table-fixed-dropdown thead > tr > th {
+            float: left;
+            position: relative;
+            &::after {
+                content: '';
+                clear: both;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div id="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3>Danh sách bệnh nhân</h3>
+            </div>
+
+            <table class="table table-hover table-borderless">
+                <tbody>
+                    <tr class="row-table">
+                        <td>1</td>
+                        <td>TC190907778</td>
+                        <td>NGUYỄN VĂN QUYẾT</td>
+                        <td>31</td>
+                        <td>Nam</td>
+                        <td><img src="images/capcuu.png" class="icon-image"></td>
+                    </tr>
+                    <tr class="row-table">
+                        <td>2</td>
+                        <td>TC190907885</td>
+                        <td>PHAN MẠNH TƯỜNG</td>
+                        <td>35</td>
+                        <td>Nam</td>
+                        <td></td>
+                    </tr>
+                    <tr class="row-table">
+                        <td>3</td>
+                        <td>TC190908134</td>
+                        <td>ĐỖ THỊ XUYỀN</td>
+                        <td>34</td>
+                        <td>Nữ</td>
+                        <td></td>
+                    </tr>
+                    <tr class="row-table">
+                        <td>4</td>
+                        <td>TC190909711</td>
+                        <td>NGUYỄN TRUNG HÀ</td>
+                        <td>57</td>
+                        <td>Nam</td>
+                        <td></td>
+                    </tr>
+                    <tr class="row-table">
+                        <td>5</td>
+                        <td>TC190908663</td>
+                        <td>NGUYỄN THẾ QUANG</td>
+                        <td>57</td>
+                        <td>Nam</td>
+                        <td><img src="images/logo_bhxh.png" class="icon-image"></td>
+                    </tr>
+                    <tr class="row-table">
+                        <td>6</td>
+                        <td>TC190910700</td>
+                        <td>PHẠM THỊ CHI</td>
+                        <td>30</td>
+                        <td>Nữ</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-success">
+                        <i class="fas fa-align-left"></i>
+                    </button>
+
+                    <div class="col-md-5 card mr-4 mb-4 px-4 py-4">
+
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="form-group row">
+                                    <strong class="col-sm-4">Số PK: </strong>
+                                    <div class="col-sm-8">
+                                        TC190910700
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="form-group row">
+                                    <strong class="col-sm-6">Giới tính: </strong>
+                                    <div class="col-sm-6">
+                                        Nam
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-7">
+                                <div class="form-group row">
+                                    <strong class="col-sm-4">Họ tên: </strong>
+                                    <div class="col-sm-8">
+                                        NGUYỄN VĂN QUYẾT
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                                <div class="form-group row">
+                                    <strong class="col-sm-6">Tuổi: </strong>
+                                    <div class="col-sm-6">
+                                        80
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 card mb-4 px-4 py-4">
+                        <div class="row">
+                            <button type="button" class="btn btn-light col-2">Basic</button>
+                            <button type="button" class="btn btn-light col-2">Basic</button>
+                            <button type="button" class="btn btn-light col-2">Basic</button>
+                            <button type="button" class="btn btn-light col-2">Basic</button>
+                            <button type="button" class="btn btn-light col-2">Basic</button>
+                            <button type="button" class="btn btn-light col-2">Basic</button>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-light col-2">Dịch vụ</button>
+                            <button type="button" class="btn btn-primary col-2">BHYT</button>
+                            <button type="button" class="btn btn-light col-2">Basic</button>
+                            <button type="button" class="btn btn-danger col-2">Cấp cứu</button>
+                            <button type="button" class="btn btn-light col-2">Basic</button>
+                            <button type="button" class="btn btn-warning col-2">Dị ứng</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div class="container" style="max-width: 88%;">
+
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#home"> 
+                                    Thông tin 
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#algo">Chỉ định</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="tab-content col-12">
+                        <div id="home" class="tab-pane active">
+                            <div class="row" style="margin-top: 20px;">
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label class="lable-text ">Bác sỹ: </label>
+                                        <select class="form-control" id="chosen">
+                                            <option>Nguyễn Văn A</option>
+                                            <option>Phạm Văn B</option>
+                                            <option>Trần Văn C</option>
+                                            <option>Nguyễn Văn D</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="lable-text">Ngày thực hiện: </label>
+                                        <input id="datetimepicker" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Lý do: </label>
+                                        <div class="form-control">
+                                            Đau bụng
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="form-group">
+                                        <label class="lable-text">Yêu cầu: </label>
+                                        <div class="form-control">
+                                            Khám thường
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Cân nặng: </label>
+                                        <input type="text" class="form-control" value="59.0">
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Chiều cao: </label>
+                                        <input type="text" class="form-control" value="170">
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Thân nhiệt: </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Mạch: </label>
+                                        <input type="text" class="form-control" value="76">
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Huyết áp: </label>
+                                        <input type="text" class="form-control" value="140/80">
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="lable-text">Nhịp thở: </label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Bệnh sử: </label>
+                                        <textarea class="form-control">Bệnh nhân đi ngoài phân đen,đầy bụng-->khám</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Tiền sử: </label>
+                                        <textarea class="form-control">Viêm dạ dày trào ngược thực quản/Trĩ nội độ I-II</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Toàn thân: </label>
+                                        <textarea class="form-control" rows="5">Thể trạng trung bình, da niêm mạc bình thường không phù, không xuất huyết dưới da</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Bộ phận: </label>
+                                        <textarea class="form-control" rows="5">- Tim nhịp đều - Phổi không có ral - Bụng không chướng, gan lá lách không sờ thấy, không có điểm đau khu trú - Các bộ phận khác hiện tại không có gì đặc biệt
+                                        </textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Chẩn đoán: </label>
+                                        <textarea class="form-control">Hc dạ dày</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label class="lable-text">Hướng giải quyết: </label>
+                                        <textarea class="form-control">Kê đơn thuốc và hẹn tái khám sau đợt điều trị</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="lable-text">Kết luận: </label>
+                                        <textarea class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="algo" class="tab-pane fade">
+                            <div class="row" style="margin-top: 20px;">
+                                <!-- XN -->
+
+                                <div class="col-8">
+                                    <div class="form-group table-responsive">
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="col-9">
+                                                <label class="lable-text">Các lần chỉ định XN: </label>
+                                            </div>
+                                            <div class="col-3">
+                                                <button type="button" class="btn btn-success" style="width: 100%;" data-toggle="modal" data-target="#chidinhxn">Chỉ định XN</button>
+                                            </div>
+                                        </div>
+                                        <table class="table table-fixed">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="col-2">Lần chỉ định</th>
+                                                    <th scope="col" class="col-2">Bp yêu cầu</th>
+                                                    <th scope="col" class="col-3">Bs yêu cầu</th>
+                                                    <th scope="col" class="col-3">Ngày chỉ định</th>
+                                                    <th scope="col" class="col-2">Thành tiền</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class='clickable-row active'>
+                                                    <td scope="row" class="col-2">XN/1910/156701</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-3">Nguyễn Văn A</td>
+                                                    <td class="col-3">10/10/2019 08:55:55</td>
+                                                    <td class="col-2">2.100.000</td>
+                                                </tr>
+                                                <tr class='clickable-row'>
+                                                    <td scope="row" class="col-2">XN/1910/156701</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-3">Nguyễn Văn A</td>
+                                                    <td class="col-3">10/10/2019 08:55:55</td>
+                                                    <td class="col-2">2.100.000</td>
+                                                </tr>
+                                                <tr class='clickable-row'>
+                                                    <td scope="row" class="col-2">XN/1910/156701</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-3">Nguyễn Văn A</td>
+                                                    <td class="col-3">10/10/2019 08:55:55</td>
+                                                    <td class="col-2">2.100.000</td>
+                                                </tr>
+                                                <tr class='clickable-row'>
+                                                    <td scope="row" class="col-2">XN/1910/156701</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-3">Nguyễn Văn A</td>
+                                                    <td class="col-3">10/10/2019 08:55:55</td>
+                                                    <td class="col-2">2.100.000</td>
+                                                </tr>
+                                                <tr class='clickable-row'>
+                                                    <td scope="row" class="col-2">XN/1910/156701</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-3">Nguyễn Văn A</td>
+                                                    <td class="col-3">10/10/2019 08:55:55</td>
+                                                    <td class="col-2">2.100.000</td>
+                                                </tr>
+                                                <tr class='clickable-row'>
+                                                    <td scope="row" class="col-2">XN/1910/156701</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-3">Nguyễn Văn A</td>
+                                                    <td class="col-3">10/10/2019 08:55:55</td>
+                                                    <td class="col-2">2.100.000</td>
+                                                </tr>
+                                                <tr class='clickable-row'>
+                                                    <td scope="row" class="col-2">XN/1910/156701</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-3">Nguyễn Văn A</td>
+                                                    <td class="col-3">10/10/2019 08:55:55</td>
+                                                    <td class="col-2">2.100.000</td>
+                                                </tr>
+                                                <tr class='clickable-row'>
+                                                    <td scope="row" class="col-2">XN/1910/156701</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-3">Nguyễn Văn A</td>
+                                                    <td class="col-3">10/10/2019 08:55:55</td>
+                                                    <td class="col-2">2.100.000</td>
+                                                </tr>
+                                                <tr class='clickable-row'>
+                                                    <td scope="row" class="col-2">XN/1910/156701</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-3">Nguyễn Văn A</td>
+                                                    <td class="col-3">10/10/2019 08:55:55</td>
+                                                    <td class="col-2">2.100.000</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+
+                                        <div class="row" style="margin-bottom: 25px;">
+                                            <div class="col-8">
+                                                <label class="lable-text"></label> <b style="color: green;">XN/1910/156701 - Nội 2</b>
+                                            </div>
+                                            <div class="col-1">
+                                                <span class="fa fa-print"></span>
+                                            </div>
+                                            <div class="col-1">
+                                                <span class="fa fa-search"></span>
+                                            </div>
+                                            <div class="col-1">
+                                                <span class="fa fa-edit" data-toggle="modal" data-target="#chidinhxn"></span>
+                                            </div>
+                                            <div class="col-1">
+                                                <span class="fa fa-trash"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <table class="table table-fixed">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" class="col-6">Tên XN</th>
+                                                        <th scope="col" class="col-4">Thành tiền</th>
+                                                        <th scope="col" class="col-1"></th>
+                                                        <th scope="col" class="col-1"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-6">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm laser) [24TS]</td>
+                                                        <td class="col-4">150.000</td>
+                                                        <td class="col-1"><span class="fa fa-search"></span></td>
+                                                        <td class="col-1"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-4">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search"></span></td>
+                                                        <td class="col-1"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-4">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search"></span></td>
+                                                        <td class="col-1"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-4">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search"></span></td>
+                                                        <td class="col-1"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-4">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search"></span></td>
+                                                        <td class="col-1"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-6">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                        <td class="col-4">650.000</td>
+                                                        <td class="col-1"><span class="fa fa-search"></span></td>
+                                                        <td class="col-1"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- CDHA -->
+                                <div class="line"></div>
+                                <div class="col-8">
+                                    <div class="form-group table-responsive">
+                                        <div class="row" style="margin-bottom: 10px;">
+                                            <div class="col-9">
+                                                <label class="lable-text">Các lần chỉ định CĐHA: </label>
+                                            </div>
+                                            <div class="col-3">
+                                                <button type="button" class="btn btn-success" style="width: 100%;" data-toggle="modal" data-target="#chidinhcdha">Chỉ định CĐHA</button>
+                                            </div>
+                                        </div>
+                                        <table class="table table-fixed">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="col-2">Lần chỉ định</th>
+                                                    <th scope="col" class="col-2">Bp yêu cầu</th>
+                                                    <th scope="col" class="col-3">Bs yêu cầu</th>
+                                                    <th scope="col" class="col-3">Ngày chỉ định</th>
+                                                    <th scope="col" class="col-2">Thành tiền</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class='clickable-row-cdha active'>
+                                                    <td scope="row" class="col-2">CDHA/1910/171603</td>
+                                                    <td class="col-2">Nội 2</td>
+                                                    <td class="col-3">Nguyễn Văn A</td>
+                                                    <td class="col-3">10/10/2019 08:55:55</td>
+                                                    <td class="col-2">3.440.000</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+
+                                        <div class="row" style="margin-bottom: 25px;">
+                                            <div class="col-8">
+                                                <label class="lable-text"></label> <b style="color: green;">CDHA/1910/171603 - Nội 2</b>
+                                            </div>
+                                            <div class="col-1">
+                                                <span class="fa fa-print"></span>
+                                            </div>
+                                            <div class="col-1">
+                                                <span class="fa fa-edit" data-toggle="modal" data-target="#chidinhcdha"></span>
+                                            </div>
+                                            <div class="col-1">
+                                                <span class="fa fa-search"></span>
+                                            </div>
+                                            <div class="col-1">
+                                                <span class="fa fa-trash"></span>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <table class="table table-fixed">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" class="col-6">Tên CĐHA</th>
+                                                        <th scope="col" class="col-4">Thành tiền</th>
+                                                        <th scope="col" class="col-1"></th>
+                                                        <th scope="col" class="col-1"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="col-6">Siêu âm ổ bụng [tổng quát - màu 4D_Nam]</td>
+                                                        <td class="col-4">400.000</td>
+                                                        <td class="col-1"><span class="fa fa-search"></span></td>
+                                                        <td class="col-1"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-6">Gây mê khác [Dạ dày và đại tràng]</td>
+                                                        <td class="col-4">1.100.000</td>
+                                                        <td class="col-1"><span class="fa fa-search"></span></td>
+                                                        <td class="col-1"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-6">Nội soi thực quản - dạ dày - tá tràng không sinh thiết [ống mềm_có test HP]</td>
+                                                        <td class="col-4">750.000</td>
+                                                        <td class="col-1"><span class="fa fa-search"></span></td>
+                                                        <td class="col-1"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="col-6">Nội soi đại trực tràng toàn bộ ống mềm không sinh thiết</td>
+                                                        <td class="col-4">1.190.000</td>
+                                                        <td class="col-1"><span class="fa fa-search"></span></td>
+                                                        <td class="col-1"><span class="fa fa-trash"></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal CDHA -->
+        <div class="modal fade" id="chidinhxn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog mw-100 w-75" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+
+                        <div class="col-12">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#all-xn"> 
+                                    Tất cả
+                                </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Huyết học</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Sinh hoá</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">SH nước tiểu</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Miễn dịch</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Vi sinh</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Tế bào học</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Mô bệnh học</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Sinh thiết</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="tab-content col-12">
+                            <div id="all-xn" class="tab-pane active">
+                                <div class="row" style="margin-top: 20px;">
+                                    <input type="text" id="search" placeholder="Tìm kiếm" class="form-control" style="margin-bottom: 10px;">
+                                    <table class="table table-fixed-chidinh" id="monTableau">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col" class="col-7">Tên XN</th>
+                                                <th scope="col" class="col-4">Thành tiền</th>
+                                                <th scope="col" class="col-1">
+                                                    <input type="checkbox" id="check_all_xn">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-7">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm laser) [24TS]</td>
+                                                <td class="col-4">150.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm tổng trở) [18TS- bằng máy đếm tự động]</td>
+                                                <td class="col-4">130.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định nhóm máu hệ ABO (Kỹ thuật trên giấy)</td>
+                                                <td class="col-4">85.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định nhóm máu hệ Rh(D) (Kỹ thuật phiến đá)</td>
+                                                <td class="col-4">90.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Đo hoạt độ AST (GOT) [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng Creatinin (máu)</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng Urê [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng Glucose [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Đo hoạt độ GGT (Gama Glutamyl Transferase) [Máu] [Gama GT]</td>
+                                                <td class="col-4">105.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Điện giải đồ (Na, K, Cl) [Máu] [Điện giải (Na+, K+, Cl-, Ca TP, Ca++)]</td>
+                                                <td class="col-4">270.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng TSH (Thyroid Stimulating hormone) [Máu]</td>
+                                                <td class="col-4">210.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng FT4 (Free Thyroxine) [Máu]</td>
+                                                <td class="col-4">210.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                        <button type="button" class="btn btn-success">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal CDHA -->
+        <div class="modal fade" id="chidinhcdha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog mw-100 w-75" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+
+                        <div class="col-12">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#all-xn"> 
+                                    Tất cả
+                                </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Huyết học</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Sinh hoá</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">SH nước tiểu</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Miễn dịch</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Vi sinh</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Tế bào học</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Mô bệnh học</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#hh-xn">Sinh thiết</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <div class="tab-content col-12">
+                            <div id="all-xn" class="tab-pane active">
+                                <div class="row" style="margin-top: 20px;">
+                                    <input type="text" id="search" placeholder="Tìm kiếm" class="form-control" style="margin-bottom: 10px;">
+                                    <table class="table table-fixed-chidinh" id="monTableau">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col" class="col-7">Tên XN</th>
+                                                <th scope="col" class="col-4">Thành tiền</th>
+                                                <th scope="col" class="col-1">
+                                                    <input type="checkbox" id="check_all_xn">
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-7">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm laser) [24TS]</td>
+                                                <td class="col-4">150.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm tổng trở) [18TS- bằng máy đếm tự động]</td>
+                                                <td class="col-4">130.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định nhóm máu hệ ABO (Kỹ thuật trên giấy)</td>
+                                                <td class="col-4">85.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định nhóm máu hệ Rh(D) (Kỹ thuật phiến đá)</td>
+                                                <td class="col-4">90.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Đo hoạt độ ALT (GPT) [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Đo hoạt độ AST (GOT) [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng Creatinin (máu)</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng Urê [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng Glucose [Máu]</td>
+                                                <td class="col-4">65.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Đo hoạt độ GGT (Gama Glutamyl Transferase) [Máu] [Gama GT]</td>
+                                                <td class="col-4">105.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Điện giải đồ (Na, K, Cl) [Máu] [Điện giải (Na+, K+, Cl-, Ca TP, Ca++)]</td>
+                                                <td class="col-4">270.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng TSH (Thyroid Stimulating hormone) [Máu]</td>
+                                                <td class="col-4">210.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="col-7">Định lượng FT4 (Free Thyroxine) [Máu]</td>
+                                                <td class="col-4">210.000</td>
+                                                <td class="col-1">
+                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Huỷ</button>
+                        <button type="button" class="btn btn-success">Lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay"></div>
+
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <!-- Popper.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <!-- Bootstrap JS -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+        <script src="js/jquery.datetimepicker.full.min.js"></script>
+        <script type="text/javascript" src="js/draw_table.js"></script>
+        <script type="text/javascript" src="js/search.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismiss, .overlay, .row-table').on('click', function() {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').removeClass('active');
+                });
+
+                $('#sidebarCollapse').on('click', function() {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').addClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+
+                $(".clickable-row").click(function() {
+                    $(".clickable-row").removeClass('active');
+                    $(this).addClass('active');
+                });
+
+                $("#search").keyup(function() {
+                    _this = this;
+                    $.each($("table tbody tr"), function() {
+                        if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
+                            $(this).hide();
+                        else
+                            $(this).show();
+                    });
+                });
+            });
+            $("#chosen").chosen();
+            $('#datetimepicker').datetimepicker();
+            $('#input-xn').keyup(function() {
+                table_search($('#input-xn').val(), $('#table-xn tbody tr'), '0123');
+            });
+
+            $("#check_all_xn").click(function() {
+                var status = this.checked;
+                $("input.selected_xn").each(function() {
+                    this.checked = status;
+                });
+            });
+        </script>
+</body>
+
+</html>
