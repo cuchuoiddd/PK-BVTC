@@ -32,3 +32,10 @@ test = (e) => {
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
+
+$('body').on('change', '.ke-thuoc', function () {
+    $('#ke_thuocCachDung').val(
+        'Ngày ' + $('#ke_thuocLuongDung').val() + " " + $('#ke_thuocDonVi').val()
+        + ", " + $('#ke_thuocSoLan').val() + " lần, " + $('#ke_thuocSuDung').val()
+    )
+}) 
