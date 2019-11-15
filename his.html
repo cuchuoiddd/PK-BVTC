@@ -430,19 +430,148 @@
             </table>
         </nav>
 
+        <nav id="sidebarProcess">
+            <div id="dismissProcess">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="sidebar-header">
+                <h3 style="color: white;">Quá trình khám</h3>
+            </div>
+
+            <div class="col-12" style="margin-top: 10px;">
+                <div class="panel panel-default ">
+                    <div class="panel-heading accordion-toggle question-toggle collapsed" style="margin-bottom: -20px;">
+                        <table class="table table-fixed-process">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="col-5">Tên mục</th>
+                                    <th scope="col" class="col-5">Ngày chỉ định</th>
+                                    <th scope="col" class="col-1"></th>
+                                    <th scope="col" class="col-1"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="col-5">Tiếp đón</td>
+                                    <td class="col-5">10/10/2019 08:55:55</td>
+                                    <td class="col-1">
+                                        <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                    <td class="col-1">
+                                        <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-5">Khám nội 2</td>
+                                    <td class="col-5">10/10/2019 08:55:55</td>
+                                    <td class="col-1">
+                                        <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                    <td class="col-1">
+                                        <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-5">Phiếu CDHA/1910/171603</td>
+                                    <td class="col-5">10/10/2019 08:55:55</td>
+                                    <td class="col-1">
+                                        <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                    <td class="col-1">
+                                        <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-5">Phiếu XN/1910/156701</td>
+                                    <td class="col-5">10/10/2019 08:55:55</td>
+                                    <td class="col-1">
+                                        <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                    <td class="col-1">
+                                        <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-5">Đơn thuốc BV/DT/038097</td>
+                                    <td class="col-5">10/10/2019 08:55:55</td>
+                                    <td class="col-1">
+                                        <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                    <td class="col-1">
+                                        <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-5">Đơn thuốc BV/DT/038097</td>
+                                    <td class="col-5">10/10/2019 08:55:55</td>
+                                    <td class="col-1">
+                                        <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                    <td class="col-1">
+                                        <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-5">Đơn thuốc BV/DT/038097</td>
+                                    <td class="col-5">10/10/2019 08:55:55</td>
+                                    <td class="col-1">
+                                        <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                    <td class="col-1">
+                                        <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-5">Đơn thuốc BV/DT/038097</td>
+                                    <td class="col-5">10/10/2019 08:55:55</td>
+                                    <td class="col-1">
+                                        <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                    <td class="col-1">
+                                        <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-5">Đơn thuốc BV/DT/038097</td>
+                                    <td class="col-5">10/10/2019 08:55:55</td>
+                                    <td class="col-1">
+                                        <span class="fas fa-print" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                    <td class="col-1">
+                                        <span class="fas fa-search" data-toggle="modal" data-target="#kq"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>
+
         <!-- Page Content  -->
         <div id="content">
 
-            <div class="thong-bao">
+            <button type="button" id="sidebarCollapseProcess" class="btn btn-success fixed-top fixed-top-custom"
+                data-toggle="tooltip" data-placement="right" title="Quá trình khám" style="z-index: auto;">
+                <i class="fa fa-stethoscope" aria-hidden="true"></i>
+            </button>
+
+            <button type="button" id="sidebarCollapse" class="btn btn-success fixed-top" style="z-index: auto;"
+                data-toggle="tooltip" data-placement="right" title="Danh sách khách hàng">
+                <i class="fas fa-align-left"></i>
+            </button>
+
+            <button type="button" id="sidebarCollapse" class="btn btn-success fixed-top thong-bao"
+                style="z-index: auto; top: 27% !important;" data-toggle="tooltip" data-placement="right"
+                title="Thông báo">
                 <i class="fa fa-bell pointer" aria-hidden="true" data-toggle="modal" data-target="#thongBao"></i>
                 <span class="badge badge-light">4</span>
-            </div>
-            <button type="button" id="sidebarCollapse" class="btn btn-success fixed-top" style="
-            position: absolute; z-index: auto;
-        " data-toggle="tooltip" data-placement="right" title="Danh sách khách hàng">
-                <i class="fas fa-align-left"></i>
-
             </button>
+
             <div class="container" style="max-width: 88%;">
                 <div class="row color-red">
                     <marquee>* Thông báo từ phòng IT* Sẽ tạm ngưng sever để nâng cấp PM thời gian từ 12h00-12h15 ngày
@@ -479,7 +608,9 @@
                         <i class="fas fa-home"></i> <label for="" class="pointer font-13">Phòng khám TMH</label>
                     </div>
                 </div>
+
                 <div class="row">
+                    <!-- Tabs menu --------------------->
                     <div class="col-12">
                         <ul class="nav nav-tabs nav-pills" role="tablist">
                             <li class="nav-item">
@@ -521,14 +652,19 @@
                                     </button>
                                     <div class="dropdown-menu font-13" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#">Sửa thông tin HC</a>
+                                        <a class="dropdown-item" href="#">Tạo nhóm chỉ định nhanh</a>
+                                        <a class="dropdown-item" href="#">Tạo mẫu cách dùng thuốc</a>
                                     </div>
                                 </div>
                             </li>
 
                         </ul>
                     </div>
+                    <!-- end Tabs menu --------------------->
 
+                    <!-- Tabs content ------------------------->
                     <div class="tab-content col-12">
+                        <!-- Chỉ định dịch vụ ------------------------>
                         <div id="chi_dinh_dv" class="tab-pane fade">
                             <div class="row mt-3">
                                 <div class="col-2 color-red">
@@ -580,8 +716,18 @@
                                                 <td class="align-middle">50.000</td>
                                                 <td class="align-middle">50.000</td>
                                                 <td class="align-middle text-center"><input type="checkbox"></td>
-                                                <td class="align-middle">tầng 1 nhà A</td>
-                                                <td class="align-middle">CS1</td>
+                                                <td class="align-middle">
+                                                    <select name="" id="" class="custom1-select">
+                                                        <option value="">Tầng 1 nhà A</option>
+                                                        <option value="">Tầng 2 nhà A</option>
+                                                    </select>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <select name="" id="" class="custom1-select">
+                                                        <option value="">Cơ sở 1</option>
+                                                        <option value="">Cơ sở 2</option>
+                                                    </select>
+                                                </td>
                                                 <td class="align-middle">05/01/2019</td>
                                                 <td class="align-middle">05/01/2019</td>
                                             </tr>
@@ -595,8 +741,18 @@
                                                 <td class="align-middle">30.000</td>
                                                 <td class="align-middle">30.000</td>
                                                 <td class="align-middle text-center"><input type="checkbox"></td>
-                                                <td class="align-middle">tầng 1 nhà A</td>
-                                                <td class="align-middle">CS1</td>
+                                                <td class="align-middle">
+                                                    <select name="" id="" class="custom1-select">
+                                                        <option value="">Tầng 1 nhà A</option>
+                                                        <option value="">Tầng 2 nhà A</option>
+                                                    </select>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <select name="" id="" class="custom1-select">
+                                                        <option value="">Cơ sở 1</option>
+                                                        <option value="">Cơ sở 2</option>
+                                                    </select>
+                                                </td>
                                                 <td class="align-middle">05/01/2019</td>
                                                 <td class="align-middle">05/01/2019</td>
                                             </tr>
@@ -616,8 +772,18 @@
                                                 <td class="align-middle">100.000</td>
                                                 <td class="align-middle">100.000</td>
                                                 <td class="align-middle text-center"><input type="checkbox"></td>
-                                                <td class="align-middle">tầng 2 nhà A</td>
-                                                <td class="align-middle">CS1</td>
+                                                <td class="align-middle">
+                                                    <select name="" id="" class="custom1-select">
+                                                        <option value="">Tầng 1 nhà A</option>
+                                                        <option value="">Tầng 2 nhà A</option>
+                                                    </select>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <select name="" id="" class="custom1-select">
+                                                        <option value="">Cơ sở 1</option>
+                                                        <option value="">Cơ sở 2</option>
+                                                    </select>
+                                                </td>
                                                 <td class="align-middle">05/01/2019</td>
                                                 <td class="align-middle">05/01/2019</td>
                                             </tr>
@@ -628,125 +794,21 @@
                             </div>
                             <div class="row mt-3 fixed-bottom fixed-bottom-dichvu">
                                 <div class="col-12">
-                                    <input type="text" id="timKiemDichVu" placeholder="Chọn dịch vụ"
-                                        class="form-control" style="margin-bottom: 10px;">
-                                    <!-- <table class="table table-fixed-chidinh" id="chonDichVu">
-                                        <thead>
-                                            <tr>
-
-                                                <th scope="col" class="col-7">Tên XN</th>
-                                                <th scope="col" class="col-4">Thành tiền</th>
-                                                <th scope="col" class="col-1">
-                                                    <input type="checkbox" id="check_all_xn">
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="col-7">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm laser) [24TS]</td>
-                                                <td class="col-4">150.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Tổng phân tích tế bào máu ngoại vi (bằng máy đếm tổng trở) [18TS- bằng máy đếm tự động]</td>
-                                                <td class="col-4">130.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Định nhóm máu hệ ABO (Kỹ thuật trên giấy)</td>
-                                                <td class="col-4">85.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Định nhóm máu hệ Rh(D) (Kỹ thuật phiến đá)</td>
-                                                <td class="col-4">90.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Đo hoạt độ ALT (GPT) [Máu]</td>
-                                                <td class="col-4">65.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Đo hoạt độ AST (GOT) [Máu]</td>
-                                                <td class="col-4">65.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Định lượng Creatinin (máu)</td>
-                                                <td class="col-4">65.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Định lượng Urê [Máu]</td>
-                                                <td class="col-4">65.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Định lượng Glucose [Máu]</td>
-                                                <td class="col-4">65.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Đo hoạt độ GGT (Gama Glutamyl Transferase) [Máu] [Gama GT]</td>
-                                                <td class="col-4">105.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Điện giải đồ (Na, K, Cl) [Máu] [Điện giải (Na+, K+, Cl-, Ca TP, Ca++)]</td>
-                                                <td class="col-4">270.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Định lượng TSH (Thyroid Stimulating hormone) [Máu]</td>
-                                                <td class="col-4">210.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                            <tr>
-
-                                                <td class="col-7">Định lượng FT4 (Free Thyroxine) [Máu]</td>
-                                                <td class="col-4">210.000</td>
-                                                <td class="col-1">
-                                                    <input type="checkbox" class="selected_xn" value="" name="xn_id[]">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table> -->
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input type="text" id="timKiemDichVu" placeholder="Chọn dịch vụ"
+                                            class="form-control" style="margin-bottom: 10px;">
+                                        </div>
+                                        <div class="col-2 text-right">
+                                            <label for="">Bác sĩ chỉ định:</label>
+                                        </div>
+                                        <div class="col-4">
+                                            <select name="" id="" class="form-control form-control-custom">
+                                                <option value="">Bác sĩ 1</option>
+                                                <option value="">Bác sĩ 2</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-5">
                                     <div class=""><i class="fas fa-star color-red"></i> Dịch vụ đã thực hiện</div>
@@ -754,9 +816,9 @@
                                 </div>
                                 <div class="col-7 text-right">
                                     <button title="Chỉ định nhanh" class="btn btn-book mr-1 btn-custom btn-sm"
-                                        style="width:40px" data-toggle="tooltip" data-placement="top"
-                                        title="Tooltip on top"><i class="fa fa-address-book"
-                                            aria-hidden="true"></i></button>
+                                        style="width:40px" data-toggle="tooltip" data-placement="top"><i
+                                            class="fa fa-address-book" style="display: inline-block;" aria-hidden="true"
+                                            data-toggle="modal" data-target=".modal-chi-dinh-nhanh"></i></button>
                                     <button class="btn btn-success mr-1 btn-custom btn-sm" style="width:85px">Gói
                                         DV</button>
                                     <button class="btn btn-success mr-1 btn-custom btn-sm"
@@ -772,6 +834,9 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- end Chỉ định dịch vụ ------------------------>
+
+                        <!-- Kê thuốc ----------------------->
                         <div id="ke_thuoc" class="tab-pane fade">
 
                             <div class="row mt-3">
@@ -797,7 +862,8 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="text-center">1</td>
-                                                        <td class="text-center align-middle"><input type="checkbox"></td>
+                                                        <td class="text-center align-middle"><input type="checkbox">
+                                                        </td>
                                                         <td class="text-center">tủ trực TMH</td>
                                                         <td>amocilin</td>
                                                         <td class="text-center">500mg</td>
@@ -809,7 +875,8 @@
                                                     </tr>
                                                     <tr>
                                                         <td class="text-center">2</td>
-                                                        <td class="text-center align-middle"><input type="checkbox"></td>
+                                                        <td class="text-center align-middle"><input type="checkbox">
+                                                        </td>
                                                         <td class="text-center">nhà thuốc</td>
                                                         <td>panadol</td>
                                                         <td class="text-center">500mg</td>
@@ -860,32 +927,36 @@
                                     <div class="col-1">
                                         <div class="form-group">
                                             <label for="">Đơn vị</label>
-                                            <input id="ke_thuocDonVi" type="text" class="form-control form-control-custom" readonly
-                                                value="Viên">
+                                            <input id="ke_thuocDonVi" type="text"
+                                                class="form-control form-control-custom" readonly value="Viên">
                                         </div>
                                     </div>
                                     <div class="col-2 max-width-11">
                                         <div class="form-group">
-                                            <label for="">  Số Lượng</label>
-                                            <input id="ke_thuocSoLuong" type="number" class="form-control form-control-custom">
+                                            <label for=""> Số Lượng</label>
+                                            <input id="ke_thuocSoLuong" type="number"
+                                                class="form-control form-control-custom">
                                         </div>
                                     </div>
                                     <div class="col-2 max-width-11">
                                         <div class="form-group">
                                             <label for="">Lượng dùng</label>
-                                            <input id="ke_thuocLuongDung" type="number" class="form-control form-control-custom">
+                                            <input id="ke_thuocLuongDung" type="number"
+                                                class="form-control form-control-custom">
                                         </div>
                                     </div>
                                     <div class="col-2 max-width-11">
                                         <div class="form-group">
                                             <label for="">Số lần</label>
-                                            <input id="ke_thuocSoLan" type="number" class="form-control form-control-custom">
+                                            <input id="ke_thuocSoLan" type="number"
+                                                class="form-control form-control-custom">
                                         </div>
                                     </div>
                                     <div class="col-2">
                                         <div class="form-group">
                                             <label for="">sử dụng</label>
-                                            <input id="ke_thuocSuDung" type="text" class="form-control form-control-custom">
+                                            <input id="ke_thuocSuDung" type="text"
+                                                class="form-control form-control-custom">
                                         </div>
                                     </div>
                                 </div>
@@ -893,7 +964,8 @@
                                     <div class="col-2 text-right font-13"><label for="">Cách dùng: </label></div>
                                     <div class="col-10">
                                         <div class="form-group">
-                                            <input id="ke_thuocCachDung" type="text" class="form-control form-control-custom">
+                                            <input id="ke_thuocCachDung" type="text"
+                                                class="form-control form-control-custom">
                                         </div>
                                     </div>
                                 </div>
@@ -906,10 +978,23 @@
                                     </div>
                                 </div>
                                 <div class="row float-right mt-5">
-                                    <button class="btn btn-book mr-1 btn-custom btn-sm"
-                                        style="width:82px" data-toggle="tooltip" data-placement="top"
-                                        title="Tooltip on top"><i class="fa fa-address-book"
-                                            aria-hidden="true"></i></button>
+                                    <div class="dropdown mr-2">
+                                        <button class="btn dropdown-toggle btn-success font-13 btn-custom" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <i class="fa fa-address-book" aria-hidden="true"></i> Đơn thuốc
+                                        </button>
+                                        <div class="dropdown-menu font-13" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#" aria-hidden="true" data-toggle="modal"
+                                                data-target=".modal-ke-toa-nhanh">Đơn thuốc mẫu</a>
+                                            <a class="dropdown-item" href="#">Đơn thuốc cũ</a>
+                                        </div>
+                                    </div>
+                                    <!-- <button class="btn btn-book mr-1 btn-custom btn-sm" style="width:82px"
+                                        data-toggle="tooltip" data-placement="top" title="Kê toa nhanh">
+                                        <i class="fa fa-address-book" aria-hidden="true" data-toggle="modal"
+                                            data-target=".modal-ke-toa-nhanh"></i>
+                                    </button> -->
                                     <button class="btn btn-success mr-2 btn-custom btn-sm"
                                         style="width: 82px;">Lưu</button>
                                     <button class="btn btn-success mr-2 btn-custom btn-sm"
@@ -921,6 +1006,9 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- End kê thuốc ----------------------->
+
+                        <!-- Kết luận -------------------------->
                         <div id="ket_luan" class="tab-pane fade ket-luan">
                             <div class="row mt-3">
                                 <div class="col-2">
@@ -994,8 +1082,12 @@
                             </div>
 
                         </div>
+                        <!-- End kết luận -------------------------->
+
+                        <!-- Lịch sử khám ---------------->
                         <div id="history" class="tab-pane fade">
                             <div class="row" style="margin-top: 20px;">
+                                <!-- Lịch sử khám col left ----------------->
                                 <div class="col-4" style="overflow-x:scroll">
                                     <table class="table font-13">
                                         <thead>
@@ -1052,6 +1144,8 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <!-- End Lịch sử khám col left ----------------->
+                                <!-- Lịch sử khám col right ----------------->
                                 <div class="col-8 lich-su-kham">
                                     <ul class="nav nav-tabs nav-pills" role="tablist">
                                         <li class="nav-item ">
@@ -1124,6 +1218,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="row mt-2">
                                                 <div class="col-2 margin-right-30"><label class="text-label">Bệnh sử:
                                                     </label></div>
@@ -1316,8 +1411,13 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- End Lịch sử khám col right ----------------->
+
                             </div>
                         </div>
+                        <!-- End Lịch sử khám ---------------->
+
+                        <!-- Khám bệnh ---------------------->
                         <div id="home" class="tab-pane active">
                             <div class="row mt-3">
                                 <div class="col-9">
@@ -1346,6 +1446,7 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="row mt-2">
                                         <div class="col-2 margin-right-30"><label class="text-label">Bệnh sử: </label>
                                         </div>
@@ -1422,9 +1523,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-1">
-                                    <button class="btn btn-primary"><i class="fa fa-address-book" aria-hidden="true"></i></button>
-                                </div> -->
+
+                                <!-- khám bệnh col left ------------------>
                                 <div class="col-3 div-left">
                                     <div class="row">
                                         <div class="col-4 margin-20"><label class="text-label">Mạch: </label></div>
@@ -1493,6 +1593,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- end khám bệnh col left ---------------->
                             </div>
                             <div class="row float-right mt-2 custom-fixed-bottom">
                                 <button class="btn btn-success mr-2 btn-custom btn-sm"
@@ -1513,6 +1614,9 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- End Khám bệnh ---------------------->
+
+                        <!-- Xem kết quả ------------------------>
                         <div id="ket_qua" class="tab-pane fade">
                             <div class="col-12 mt-2 font-13">
                                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -1594,11 +1698,16 @@
                             <button class="btn btn-success btn-custom fixed-bottom btn-in-lai-ket-qua">In lại kết
                                 quả</button>
                         </div>
+                        <!-- End Xem kết quả ------------------------>
+
+                        <!-- Bệnh án ngoại trú ---------------------->
                         <div id="benh_an_ngoai_tru" class="tab-pane fade">
                             bệnh án ngoại trú
                         </div>
-                    </div>
+                        <!-- End Bệnh án ngoại trú ---------------------->
 
+                    </div>
+                    <!-- end Tabs content ------------------------->
                 </div>
             </div>
         </div>
@@ -2201,15 +2310,6 @@
                         </div>
                     </div>
                     <div class="row mt-2">
-                        <div class="col-4">Cơ sở</div>
-                        <div class="col-8">
-                            <select name="" id="" class="form-control">
-                                <option value="">BV Thu Cúc</option>
-                                <option value="">Phòng khám TDH</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row mt-2">
                         <div class="col-4">Bác sĩ</div>
                         <div class="col-8">
                             <select name="" id="" class="form-control">
@@ -2315,15 +2415,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr onclick="test('abcabc')" >
+                                    <tr onclick="test('abcabc')">
                                         <td>
                                             <input type="checkbox"> &nbsp;
                                             <i class="fa fa-star font-15" style="color: #ffdc34;"
                                                 aria-hidden="true"></i>
                                         </td>
-                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">Nguyễn văn a</td>
-                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">Nội dung sdfsdf</td>
-                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">20/10/2019</td>
+                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">Nguyễn
+                                            văn a</td>
+                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">Nội
+                                            dung sdfsdf</td>
+                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">
+                                            20/10/2019</td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -2331,9 +2434,12 @@
                                             <i class="fa fa-star font-15" style="color: #ffdc34;"
                                                 aria-hidden="true"></i>
                                         </td>
-                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">Nguyễn văn a</td>
-                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">Nội dung sdfsdf</td>
-                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">20/10/2019</td>
+                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">Nguyễn
+                                            văn a</td>
+                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">Nội
+                                            dung sdfsdf</td>
+                                        <td data-toggle="modal" data-target=".chi-tiet-tin-nhan" class="pointer">
+                                            20/10/2019</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -2507,6 +2613,145 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal chỉ định nhanh -->
+    <div class="modal fade modal-chi-dinh-nhanh" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h2>Chỉ định nhanh</h2>
+                            </div>
+                            <div class="card-body">
+                                <div class="mt-2">
+                                    <input type="text" class="form-control form-control-custom" id="searchChiDinhNhanh">
+                                </div>
+                                <ul class="list-group mt-2 ulChiDinhNhanh">
+                                    <li class="list-group-item">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <input type="checkbox" id="checkAll"> <label for="checkAll">Sinh
+                                                            hóa máu</label>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        &emsp;<input type="checkbox" class="checkItem"> Tổng phân tích
+                                                        tế bào máu
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &emsp;<input type="checkbox" class="checkItem"> Định lượng Urê
+                                                        máu
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </li>
+                                    <li class="list-group-item">Sinh hóa nước tiểu</li>
+                                    <li class="list-group-item">Gói xét nghiệm gan</li>
+                                    <li class="list-group-item">Gói xét nghiệm dạ dày</li>
+                                </ul>
+                            </div>
+                            <div class="card-footer text-muted text-right">
+                                <button class="btn btn-success">Chọn</button>
+                                <button class="btn btn-success">Hủy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal mẫu kê thuốc -->
+    <div class="modal fade modal-ke-toa-nhanh" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-90">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    <h3>Đơn thuốc mẫu</h3>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table font-13">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Tên đơn</th>
+                                                <th>Bác sĩ kê</th>
+                                                <th>Bệnh chính</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="checkbox"></td>
+                                                <td>Đơn thuốc ho</td>
+                                                <td>Bs Nguyễn Văn Nam</td>
+                                                <td>Viêm phế quản</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-header text-center">
+                                    <h4>Chi tiết</h4>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table font-13">
+                                        <thead>
+                                            <tr>
+                                                <th>Kho</th>
+                                                <th>Tên thuốc</th>
+                                                <th>Hàm lượng</th>
+                                                <th>Đơn vị</th>
+                                                <th>Số lượng</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Kho ngoại trú</td>
+                                                <td>Vitamin C</td>
+                                                <td>100 mg</td>
+                                                <td>Viên</td>
+                                                <td>100</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kho ngoại trú</td>
+                                                <td>Amocilin</td>
+                                                <td>500 mg</td>
+                                                <td>Viên</td>
+                                                <td>10</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Đồng ý</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="overlay"></div>
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
@@ -2551,6 +2796,26 @@
                 $('a[aria-expanded=true]').attr('aria-expanded', 'false');
             });
 
+
+
+            $("#sidebarProcess").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismissProcess, .overlay').on('click', function () {
+                $('#sidebarProcess').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapseProcess').on('click', function () {
+                $('#sidebarProcess').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+
+
+
             $(".clickable-row").click(function () {
                 $(".clickable-row").removeClass('active');
                 $(this).addClass('active');
@@ -2559,15 +2824,6 @@
             $("#search").keyup(function () {
                 _this = this;
                 $.each($("table tbody tr"), function () {
-                    if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                        $(this).hide();
-                    else
-                        $(this).show();
-                });
-            });
-            $("#timKiemDichVu").keyup(function () {
-                _this = this;
-                $.each($("#chonDichVu tbody tr"), function () {
                     if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
                         $(this).hide();
                     else

@@ -35,7 +35,20 @@ $(function () {
 
 $('body').on('change', '.ke-thuoc', function () {
     $('#ke_thuocCachDung').val(
-        'Ngày ' + $('#ke_thuocLuongDung').val() + " " + $('#ke_thuocDonVi').val()
-        + ", " + $('#ke_thuocSoLan').val() + " lần, " + $('#ke_thuocSuDung').val()
+        'Uống ' + $('#ke_thuocLuongDung').val() + " " + $('#ke_thuocDonVi').val()
+        + ", ngày " + $('#ke_thuocSoLan').val() + " lần, " + $('#ke_thuocSuDung').val()
     )
-}) 
+});
+
+$("#checkAll").click(function () {
+    $('.checkItem').not(this).prop('checked', this.checked);
+});
+
+$(document).ready(function () {
+    $("#searchChiDinhNhanh").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $(".ulChiDinhNhanh li").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+});

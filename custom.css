@@ -21,6 +21,7 @@
 .navbar-expand-lg {padding: 0; }
 .table td {padding: 0px 5px; }
 .fixed-top {left: 15px !important; top: 83px !important; }
+.fixed-top-custom{top: 20% !important; }
 .form-control-custom input,.form-control-custom select {width: 100%; }
 .nav-link.active{background-color: #1d9d74 !important;}
 .lich-su-kham .active{background-color:unset !important;}
@@ -51,8 +52,11 @@
 .min-width-100{min-width: 100px}
 .max-width-11{max-width: 11%}
 .height-35{height: 35px;}
-.thong-bao{position: absolute; top: 20%;}
-.thong-bao .badge-light{position: absolute; left: 22px; color: white; border-radius: 50%; background: red;}
+.thong-bao{background: unset !important;
+    border: unset;
+    color: red;
+    font-size: 27px;left: 8px !important;}
+.thong-bao .badge-light{position: absolute; left: 32px; color: white; border-radius: 50%; background: red;font-size: 13px;}
 .thong-bao svg{width: 30px !important; height: 36px; color:#1d9d74;}
 .modal-content{height: 70vh;}
 .btn-in-lai-ket-qua{left: unset; bottom: 20px; right: 10%;}
@@ -61,4 +65,5 @@
 .btn-tien-ich::after{right: 3px;}
 .btn-tien-ich:focus{background: #1d9d74;color: white;}
 #ke_thuoc .ke-thuoc{bottom: 20px; right: 8%; left: 8%;}
+.custom1-select{border: none; background: #fafafa;width: 130px;}
 
