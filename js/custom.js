@@ -39,6 +39,30 @@ $('body').on('change', '.ke-thuoc', function () {
         + ", ngày " + $('#ke_thuocSoLan').val() + " lần, " + $('#ke_thuocSuDung').val()
     )
 });
+$('body').on('change', '#ket_luan', function () {
+    $('#benh_chinh_text').val( $('#benh_chinh_icd10').val() =='J20' ? 'Viêm phế quản cấp' : '')
+    $('#benh_kem_theo_text').val( $('#benh_kem_theo_icd10').val() =='M45' ? 'Đau cột sống' : '')
+});
+
+luuKetLuan = () =>{
+    if($('#benh_chinh_text').val() == ''){return;}
+    $('.indexKetLuan').val(
+        "(" + $('#benh_chinh_icd10').val() + ") " + $('#benh_chinh_text').val() + "; "
+        + "(" + $('#benh_kem_theo_icd10').val() + ") " + $('#benh_kem_theo_text').val() + "; "
+        + $(".mySelect option:selected").html()
+    )
+    // console.log(23423423, $(".mySelect option:selected").html())
+}
+chonXN=()=>{
+    console.log(32423424,$(".tableXetNghiem")[0].rows[4].cells)
+    let td = $(".tableXetNghiem")[0].rows[4].cells;
+    if ($('.inputXN').is(":checked")){
+        $('.kqCLS').val(
+            td[0].innerHTML.replace('<input type="checkbox" class="inputXN">','').trim()
+            + ' ' + td[2].innerHTML + ' ' + td[3].innerHTML + ' ' + td[4].innerHTML
+        )
+    }
+}
 
 $("#checkAll").click(function () {
     $('.checkItem').not(this).prop('checked', this.checked);
@@ -52,3 +76,6 @@ $(document).ready(function () {
         });
     });
 });
+
+$('.tree-basic').treegrid();
+
