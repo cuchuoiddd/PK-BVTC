@@ -7,16 +7,26 @@ $('.sidebar-header select').on('change', e => {
             $('#tb-cho-kham').show();
             $('#tb-hen-kham').hide();
             $('#tb-cho-doc-kq').hide();
+            $('#tb-ket-thuc-kham').hide();
 
             break;
         case "hen_kham":
             $('#tb-hen-kham').show();
             $('#tb-cho-kham').hide();
             $('#tb-cho-doc-kq').hide();
+            $('#tb-ket-thuc-kham').hide();
 
             break;
         case "cho_doc_kq":
             $('#tb-cho-doc-kq').show();
+            $('#tb-hen-kham').hide();
+            $('#tb-cho-kham').hide();
+            $('#tb-ket-thuc-kham').hide();
+
+            break;
+        case "ket_thuc_kham":
+            $('#tb-ket-thuc-kham').show();
+            $('#tb-cho-doc-kq').hide();
             $('#tb-hen-kham').hide();
             $('#tb-cho-kham').hide();
 
@@ -57,9 +67,10 @@ chonXN=()=>{
     console.log(32423424,$(".tableXetNghiem")[0].rows[4].cells)
     let td = $(".tableXetNghiem")[0].rows[4].cells;
     if ($('.inputXN').is(":checked")){
+        console.log(4235345,td[0].innerHTML)
         $('.kqCLS').val(
             td[0].innerHTML.replace('<input type="checkbox" class="inputXN">','').trim()
-            + ' ' + td[2].innerHTML + ' ' + td[3].innerHTML + ' ' + td[4].innerHTML
+            + ' ' + td[2].innerHTML + ' ' +  td[4].innerHTML
         )
     }
 }
