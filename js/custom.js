@@ -36,6 +36,104 @@ $('.sidebar-header select').on('change', e => {
             break;
     }
 });
+
+$('#huongDieuTri').on('change',e=>{
+    console.log(1111111, e.target.value)
+    let key = e.target.value;
+    switch (key) {
+        case 'ke_toa_cho_ve':
+            $('#keToaChoVe').show();
+            $('#nhapVien').hide();
+            $('#chuyenPhongKham').hide();
+            $('#chuyenKhamChinh').hide();
+            $('#tuVong').hide();
+            $('#chuyenVien').hide();
+
+
+            break;
+        case 'nhap_vien':
+            $('#nhapVien').show();
+            $('#keToaChoVe').hide();
+            $('#chuyenPhongKham').hide();
+            $('#chuyenKhamChinh').hide();
+            $('#tuVong').hide();
+
+            $('#chuyenVien').hide();
+
+            break;
+        case 'cho_ve_khong_toa':
+            $('#nhapVien').hide();
+            $('#keToaChoVe').hide();
+            $('#chuyenPhongKham').hide();
+            $('#chuyenKhamChinh').hide();
+            $('#tuVong').hide();
+
+            $('#chuyenVien').hide();
+
+            break;
+        case 'chuyen_vien':
+            $('#chuyenVien').show();
+            $('#nhapVien').hide();
+            $('#keToaChoVe').hide();
+            $('#chuyenPhongKham').hide();
+            $('#chuyenKhamChinh').hide();
+            $('#tuVong').hide();
+
+
+            break;
+        case 'chuyen_phong_kham':
+            $('#chuyenPhongKham').show();
+            $('#nhapVien').hide();
+            $('#keToaChoVe').hide();
+            $('#chuyenKhamChinh').hide();
+            $('#tuVong').hide();
+            $('#chuyenVien').hide();
+
+            break;
+        case 'chuyen_kham_chinh':
+            $('#chuyenKhamChinh').show();
+            $('#nhapVien').hide();
+            $('#keToaChoVe').hide();
+            $('#chuyenPhongKham').hide();
+            $('#tuVong').hide();
+            $('#chuyenVien').hide();
+
+            break;
+        case 'dieu_tri_ngoai_tru':
+            $('#nhapVien').hide();
+            $('#keToaChoVe').hide();
+            $('#chuyenPhongKham').hide();
+            $('#chuyenKhamChinh').hide();
+            $('#tuVong').hide();
+            $('#chuyenVien').hide();
+
+
+            break;
+        case 'bo_ve':
+            $('#nhapVien').hide();
+            $('#keToaChoVe').hide();
+            $('#chuyenPhongKham').hide();
+            $('#chuyenKhamChinh').hide();
+            $('#tuVong').hide();
+            $('#chuyenVien').hide();
+
+
+            break;
+        case 'tu_vong':
+            $('#tuVong').show();
+            $('#nhapVien').hide();
+            $('#keToaChoVe').hide();
+            $('#chuyenPhongKham').hide();
+            $('#chuyenKhamChinh').hide();
+            $('#chuyenVien').hide();
+
+
+            break;
+    
+        default:
+            break;
+    }
+})
 test = (e) => {
     console.log(222222, e);
 }
@@ -64,22 +162,22 @@ luuKetLuan = () =>{
     // console.log(23423423, $(".mySelect option:selected").html())
 }
 chonXN=()=>{
-    console.log(32423424,$(".tableXetNghiem")[0].rows[4].cells)
     let td = $(".tableXetNghiem")[0].rows[4].cells;
     if ($('.inputXN').is(":checked")){
-        console.log(4235345,td[0].innerHTML)
         $('.kqCLS').val(
-            td[0].innerHTML.replace('<input type="checkbox" class="inputXN">','').trim()
-            + ' ' + td[2].innerHTML + ' ' +  td[4].innerHTML
+            td[0].innerText.trim() + ' ' + td[2].innerText + ' ' +  td[4].innerText
         )
     }
 }
 
-$("#checkAll").click(function () {
-    $('.checkItem').not(this).prop('checked', this.checked);
-});
-
 $(document).ready(function () {
+    $("#checkAll").click(function () {
+        $('.checkAll .checkItem').not(this).prop('checked', this.checked);
+    });
+    $("#checkAll1").click(function () {
+        $('.checkAll1 .checkItem').not(this).prop('checked', this.checked);
+    });
+    
     $("#searchChiDinhNhanh").on("keyup", function () {
         var value = $(this).val().toLowerCase();
         $(".ulChiDinhNhanh li").filter(function () {

@@ -86,9 +86,12 @@ body{    overflow-x: hidden;}
     #content{padding: 0;}
     .nav-tabs-custom{border-bottom: none;}
 .min-height-50-vh{min-height: 50vh;}
-.height-85-vh{height: 85vh;}
-.height-65-vh{height: 65vh;}
+.min-height-85-vh{min-height: 85vh;}
+.min-height-65-vh{min-height: 65vh;}
 .card-custom{border: none; background: unset;}
 .card-custom .card-footer{background: unset;}
 .max-width-85{max-width: 85%;}
 .nav-tabs-custom1 .nav-link.active{background: unset !important; color: #007944 !important; font-weight: 700;}
+.btn-don-thuoc::after{right: 59px}
+.margin-bottom-0{margin-bottom: 0;}
+.treegrid-container{margin: 0 !important;}
