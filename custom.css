@@ -54,10 +54,12 @@ body{    overflow-x: hidden;}
 .line-height-3{line-height: 3;}
 .line-height-4{line-height: 4;}
 .fa-address-book,.fa-link{margin-left: -5px;}
+.min-width-170{min-width: 170px}
 .min-width-150{min-width: 150px}
 .min-width-100{min-width: 100px}
 .max-width-11{max-width: 11%}
 .max-width-12{max-width: 13%}
+.max-width-14{max-width: 14%}
 .height-35{height: 35px;}
 .thong-bao{background: unset !important;
     border: unset;
@@ -94,4 +96,7 @@ body{    overflow-x: hidden;}
 .nav-tabs-custom1 .nav-link.active{background: unset !important; color: #007944 !important; font-weight: 700;}
 .btn-don-thuoc::after{right: 59px}
 .margin-bottom-0{margin-bottom: 0;}
-.treegrid-container{margin: 0 !important;}
+.color-warning{color: #f6d55c}
+.align-center{align-self: center;}
+#sidebarProcess{background: #fff;width: 55%;left: -55%;}
+.hover-blue:hover{color: blue;}

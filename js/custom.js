@@ -148,7 +148,7 @@ $('body').on('change', '.ke-thuoc', function () {
     )
 });
 $('body').on('change', '#ket_luan', function () {
-    $('#benh_chinh_text').val( $('#benh_chinh_icd10').val() =='J20' ? 'Viêm phế quản cấp' : '')
+    $('#benh_chinh_text').val( ($('#benh_chinh_icd10').val() =='J20' || $('#benh_chinh_icd10').val() == 'j20') ? 'Viêm phế quản cấp' : '')
     $('#benh_kem_theo_text').val( $('#benh_kem_theo_icd10').val() =='M45' ? 'Đau cột sống' : '')
 });
 
@@ -184,7 +184,23 @@ $(document).ready(function () {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
+
+    var timepicker = new TimePicker('time', {
+        lang: 'en',
+        theme: 'dark'
+      });
+      timepicker.on('change', function(evt) {
+        
+        var value = (evt.hour || '00') + ':' + (evt.minute || '00');
+        evt.element.value = value;
+      
+      });
 });
 
 $('.tree-basic').treegrid();
 
+deleteChinhDinh=()=>{
+    let td = $("#chi_dinh_dv .tree-basic")[0].rows[3];
+    console.log(342423,td)
+
+}
